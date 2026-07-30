@@ -1,84 +1,3036 @@
 [
-{
-"id": "case-001",
-"createdAt": "2026-07-30T10:00:00.000Z",
-"initialInfo": {
-"name": "山田 太郎",
-"age": "63",
-"gender": "男性",
-"setting": "救急外来（ER）夜間帯。徒歩にて来院。",
-"chiefComplaint": "16. 胸痛"
-},
-"hiddenSettings": {
-"aim": "急性冠症候群（ACS）を念頭においた系統的問診と、心電図・バイタル所見の迅速な評価、および危険因子の聴取能力の検証。",
-"actingGuideline": "胸の中央部を握りこぶしでさすりながら、少し苦しそうに話す。『さっきから冷や汗が止まらなくて…』と不安そうにする。放散痛（左肩・下顎）を聞かれたら『そう言われてみれば左の肩も重だるい』と答える。",
-"differentialDiagnosis": "第一生: 急性心筋梗塞 (AMI) / 虚血性心疾患\n鑑別: 解離性大動脈瘤、肺血栓栓塞症、気胸、逆流性食道炎"
-},
-"patientInfo": {
-"hpi": "本日19時頃、夕食後に自宅でテレビを見ていたところ、突然胸の中央部が絞り込まれるような強い痛みに襲われた。痛みは30分以上持続しており、治まる気配がない。冷や汗を伴い、左肩にも重だるい痛みが広がっている。",
-"careBehavior": "これまで同様の痛みを経験したことがなく、怖くなり妻の運転する車で救急外来を受診した。",
-"explanatoryModel": "「心臓の病気（心筋梗塞など）ではないかと非常に心配です。身内に心筋梗塞で亡くなった人がいるので…」",
-"pmh": "高血圧症（5年前から内服治療中）、高脂血症（放置）",
-"familyHistory": "父：58歳時に心筋梗塞で他界。母：80歳 健在（糖尿病）。",
-"background": "会社員（デスクワーク）。喫煙：1日20本×40年。飲酒：ビール350ml×毎日。同居家族：妻。"
-},
-"physicalExam": {
-"vitals": {
-"consciousness": "清明 (JCS 0 / GCS 15)",
-"temp": "36.6 ℃",
-"pulse": "98 回/分（整）",
-"bp": "154/92 mmHg",
-"resp": "22 回/分",
-"spo2": "95 % (Room Air)"
-},
-"findings": {
-"headNeck": "頸部血管怒張なし。結膜に黄疸・貧血なし。",
-"chest": "心音：整。Ⅲ音・Ⅳ音なし。雑音なし。両肺野：Clear。ラ音聴取せず。",
-"abdomen": "平坦・軟。圧痛なし。筋性防御なし。",
-"extremities": "冷感あり。浮腫なし。チアノーゼ微増。",
-"other": "冷や汗（発汗）顕著。"
-}
-}
-},
-{
-"id": "case-002",
-"createdAt": "2026-07-30T10:00:00.000Z",
-"initialInfo": {
-"name": "佐藤 花子",
-"age": "24",
-"gender": "女性",
-"setting": "診療所（クリニック）の日中診察室。",
-"chiefComplaint": "20. 腹痛"
-},
-"hiddenSettings": {
-"aim": "急性腹症（特に急性虫垂炎）における痛みの移動（臍周囲→右下腹部）の確認、身体所見（腹部圧痛・反跳痛）の診断精度の評価。",
-"actingGuideline": "右下腹部を押さえるようにしてお腹を丸めて座っている。歩くと響く様子を見せる。『昨日のお腹の痛みとは場所が変わってきた』と正確に語る。",
-"differentialDiagnosis": "第一生: 急性虫垂炎\n鑑別: 異位妊娠（宮外妊娠）、急性腸炎、卵巣出血・卵巣腫瘍茎捻転、尿路結石"
-},
-"patientInfo": {
-"hpi": "昨日の夕方頃からなんとなくみぞおちからお腹全体にかけて鈍い痛みと気持ち悪さを感じていた。今朝起きてから痛みが右下腹部に移動し、差し込むような痛みに変わった。歩いたり響いたりすると痛みが強くなる。食欲はない。",
-"careBehavior": "市販の胃薬を飲んだが効かず、痛みが強くなったため近所のクリニックを受診。",
-"explanatoryModel": "「盲腸（虫垂炎）でしょうか？ 手術が必要になるのか不安です。」",
-"pmh": "特記事項なし。アレルギーなし。",
-"familyHistory": "特記事項なし。",
-"background": "大学生。一人暮らし。最終月経は2週間前（規則的）。喫煙なし、機会飲酒。"
-},
-"physicalExam": {
-"vitals": {
-"consciousness": "清明",
-"temp": "37.8 ℃",
-"pulse": "84 回/分",
-"bp": "112/68 mmHg",
-"resp": "16 回/分",
-"spo2": "99 % (Room Air)"
-},
-"findings": {
-"headNeck": "特記事項なし。咽頭発赤なし。",
-"chest": "心音清。雑音なし。呼吸音清。",
-"abdomen": "右下腹部（McBurney点）に明らかな圧痛および反跳痛（Rebound tenderness）を認める。筋性防御（+）。腸雑音は減弱。",
-"extremities": "特記事項なし。",
-"other": "Psoasサイン（陽性）、Rovsingサイン（陽性）。"
-}
-}
-}
+  {
+    "id": "case-001",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 花子",
+      "age": "22",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "1. 発熱"
+    },
+    "hiddenSettings": {
+      "aim": "急性発症の高熱・頭痛・項部硬直を確認し、細菌性髄膜炎を最優先に評価する。",
+      "actingGuideline": "ぐったりして目を閉じ、首を動かすと痛がる。",
+      "differentialDiagnosis": "第一診断: 髄膜炎\n鑑別: 肺炎、インフルエンザ、急性副鼻腔炎、脳炎"
+    },
+    "patientInfo": {
+      "hpi": "今朝から39℃台の発熱と激しい頭痛、嘔気があり、光をまぶしく感じる。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「項部硬直と髄膜刺激徴候を伴う急性発熱。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識清明だが苦悶様。",
+        "temp": "39.4 ℃",
+        "pulse": "112 回/分（整）",
+        "bp": "106/64 mmHg",
+        "resp": "24 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "項部硬直あり。Kernig徴候疑陽性。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "皮疹なし。",
+        "other": "意識清明だが苦悶様。"
+      }
+    }
+  },
+  {
+    "id": "case-002",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "34",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "1. 発熱"
+    },
+    "hiddenSettings": {
+      "aim": "発熱患者で尿路症状と腰背部痛を聴取し、腎盂腎炎を診断する。",
+      "actingGuideline": "右腰を押さえ、寒気がすると訴える。",
+      "differentialDiagnosis": "第一診断: 尿路感染症（急性腎盂腎炎）\n鑑別: 胆嚢炎、肺炎、骨盤内炎症性疾患、尿路結石"
+    },
+    "patientInfo": {
+      "hpi": "2日前から排尿時痛と頻尿があり、本日39℃の発熱と右腰背部痛が出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「下部尿路症状に続く高熱とCVA叩打痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "39.0 ℃",
+        "pulse": "108 回/分（整）",
+        "bp": "112/70 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内やや乾燥。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "右側腹部に軽い圧痛。",
+        "extremities": "右CVA叩打痛あり。",
+        "other": "悪寒戦慄あり。"
+      }
+    }
+  },
+  {
+    "id": "case-003",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 恵",
+      "age": "46",
+      "gender": "女性",
+      "setting": "総合内科外来",
+      "chiefComplaint": "2. 全身倦怠感"
+    },
+    "hiddenSettings": {
+      "aim": "倦怠感の原因として内分泌疾患を想定し、甲状腺症状を系統的に確認する。",
+      "actingGuideline": "ゆっくりした口調で、最近何をするにも億劫と話す。",
+      "differentialDiagnosis": "第一診断: 甲状腺機能低下症\n鑑別: うつ病、鉄欠乏性貧血、心不全、肝炎"
+    },
+    "patientInfo": {
+      "hpi": "数か月前から疲れやすく、寒がり、便秘、体重増加がある。",
+      "careBehavior": "症状が改善せず、総合内科外来を受診した。",
+      "explanatoryModel": "「徐脈、乾燥皮膚、寒がりを伴う慢性倦怠感。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "35.8 ℃",
+        "pulse": "56 回/分（整）",
+        "bp": "128/76 mmHg",
+        "resp": "14 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眉毛外側の菲薄化。甲状腺腫大なし。",
+        "chest": "呼吸音清。心音減弱。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "下腿に非圧痕性浮腫。皮膚乾燥。",
+        "other": "腱反射弛緩相遅延。"
+      }
+    }
+  },
+  {
+    "id": "case-004",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "29",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "2. 全身倦怠感"
+    },
+    "hiddenSettings": {
+      "aim": "倦怠感に対して出血歴・月経歴を聴取し、貧血所見を評価する。",
+      "actingGuideline": "顔色が悪く、立ち上がると少しふらつく。",
+      "differentialDiagnosis": "第一診断: 鉄欠乏性貧血\n鑑別: 甲状腺機能低下症、うつ病、心不全、肝炎"
+    },
+    "patientInfo": {
+      "hpi": "半年ほど月経量が多く、最近階段で息切れし、強いだるさを感じる。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「過多月経を背景とする労作時息切れと倦怠感。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "96 回/分（整）",
+        "bp": "108/66 mmHg",
+        "resp": "18 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜蒼白。舌乳頭萎縮軽度。",
+        "chest": "収縮期駆出性雑音を軽度聴取。肺清。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "爪が薄く軽度匙状。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-005",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "51",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "3. 食思（欲）不振"
+    },
+    "hiddenSettings": {
+      "aim": "食欲低下から消化性潰瘍を疑い、NSAIDs・黒色便・腹痛の時間関係を確認する。",
+      "actingGuideline": "みぞおちを気にしながら、食べると痛むのが怖いと話す。",
+      "differentialDiagnosis": "第一診断: 消化性潰瘍\n鑑別: 胃癌、機能性ディスペプシア、急性肝炎、うつ病"
+    },
+    "patientInfo": {
+      "hpi": "1か月前から空腹時の心窩部痛と食欲低下があり、黒っぽい便を一度認めた。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「心窩部痛と出血徴候を伴う食欲不振。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "88 回/分（整）",
+        "bp": "124/72 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "結膜に軽度貧血。黄疸なし。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "心窩部に限局した圧痛。反跳痛なし。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で黒色便付着なし。"
+      }
+    }
+  },
+  {
+    "id": "case-006",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 久美",
+      "age": "38",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "3. 食思（欲）不振"
+    },
+    "hiddenSettings": {
+      "aim": "食欲不振に潜む副腎クリーゼを見抜き、薬歴と循環不全を評価する。",
+      "actingGuideline": "ぐったりし、質問には短く答える。",
+      "differentialDiagnosis": "第一診断: 急性副腎不全\n鑑別: 急性胃腸炎、敗血症、低血糖、急性肝炎"
+    },
+    "patientInfo": {
+      "hpi": "数日前から食欲がなく、嘔吐と強い倦怠感が続き、今朝から立てないほどふらつく。ステロイドを自己中断した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「ステロイド中断後の低血圧、嘔吐、食欲不振。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "傾眠傾向。",
+        "temp": "37.1 ℃",
+        "pulse": "118 回/分（整）",
+        "bp": "78/46 mmHg",
+        "resp": "24 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内乾燥。",
+        "chest": "呼吸音清。心音頻脈。",
+        "abdomen": "びまん性軽度圧痛。",
+        "extremities": "四肢冷感あり。",
+        "other": "傾眠傾向。"
+      }
+    }
+  },
+  {
+    "id": "case-007",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 由紀",
+      "age": "32",
+      "gender": "女性",
+      "setting": "内分泌内科外来",
+      "chiefComplaint": "4. 体重減少"
+    },
+    "hiddenSettings": {
+      "aim": "体重減少から甲状腺機能亢進症を疑い、動悸・発汗・便通・月経を聴取する。",
+      "actingGuideline": "落ち着かず早口で話し、手指振戦がみられる。",
+      "differentialDiagnosis": "第一診断: 甲状腺機能亢進症\n鑑別: 糖尿病、悪性腫瘍、結核、うつ病"
+    },
+    "patientInfo": {
+      "hpi": "食欲はあるのに3か月で6kg減少し、動悸、発汗、手の震えがある。",
+      "careBehavior": "症状が改善せず、内分泌内科外来を受診した。",
+      "explanatoryModel": "「食欲亢進を伴う体重減少と交感神経症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.2 ℃",
+        "pulse": "112 回/分（整）",
+        "bp": "142/68 mmHg",
+        "resp": "18 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "びまん性甲状腺腫大。眼球突出軽度。",
+        "chest": "頻脈。肺清。",
+        "abdomen": "平坦・軟。腸蠕動亢進。",
+        "extremities": "浮腫なし。",
+        "other": "手指振戦。腱反射亢進。"
+      }
+    }
+  },
+  {
+    "id": "case-008",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 宏",
+      "age": "68",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "4. 体重減少"
+    },
+    "hiddenSettings": {
+      "aim": "悪性腫瘍を念頭に、体重変化、食欲、便色、嚥下症状を評価する。",
+      "actingGuideline": "痩せて疲れた様子で、食べるとすぐ満腹になると話す。",
+      "differentialDiagnosis": "第一診断: 悪性腫瘍（胃癌）\n鑑別: 甲状腺機能亢進症、結核、糖尿病、うつ病"
+    },
+    "patientInfo": {
+      "hpi": "半年で8kg減少し、食事量低下、早期満腹感、心窩部不快感が続く。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「高齢者の意図しない体重減少と上部消化器症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "84 回/分（整）",
+        "bp": "116/70 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜に軽度貧血。Virchowリンパ節触知せず。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "心窩部に軽度圧痛。腫瘤触知なし。",
+        "extremities": "浮腫なし。",
+        "other": "BMI 18.0。"
+      }
+    }
+  },
+  {
+    "id": "case-009",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "74",
+      "gender": "男性",
+      "setting": "循環器内科外来",
+      "chiefComplaint": "5. 体重増加"
+    },
+    "hiddenSettings": {
+      "aim": "体重増加を体液貯留と捉え、心不全徴候を確認する。",
+      "actingGuideline": "椅子に座ったままの方が息が楽だと話す。",
+      "differentialDiagnosis": "第一診断: 心不全\n鑑別: ネフローゼ症候群、甲状腺機能低下症、肝硬変"
+    },
+    "patientInfo": {
+      "hpi": "1週間で3kg増え、両下肢のむくみと夜間の息苦しさが出現した。",
+      "careBehavior": "症状が改善せず、循環器内科外来を受診した。",
+      "explanatoryModel": "「短期間の体重増加、浮腫、起坐呼吸。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.3 ℃",
+        "pulse": "102 回/分（不整）",
+        "bp": "148/86 mmHg",
+        "resp": "24 回/分",
+        "spo2": "92 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈怒張あり。",
+        "chest": "両側下肺野に湿性ラ音。Ⅲ音あり。",
+        "abdomen": "肝腫大軽度。腹水なし。",
+        "extremities": "両下腿に圧痕性浮腫。",
+        "other": "末梢冷感軽度。"
+      }
+    }
+  },
+  {
+    "id": "case-010",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "41",
+      "gender": "女性",
+      "setting": "腎臓内科外来",
+      "chiefComplaint": "5. 体重増加"
+    },
+    "hiddenSettings": {
+      "aim": "体重増加から腎性浮腫を疑い、尿性状と浮腫分布を確認する。",
+      "actingGuideline": "顔がむくみ、靴がきつくなったと訴える。",
+      "differentialDiagnosis": "第一診断: ネフローゼ症候群\n鑑別: 心不全、甲状腺機能低下症、肝硬変"
+    },
+    "patientInfo": {
+      "hpi": "2週間で4kg増え、朝のまぶたの腫れと両脚のむくみ、泡立つ尿に気づいた。",
+      "careBehavior": "症状が改善せず、腎臓内科外来を受診した。",
+      "explanatoryModel": "「顔面浮腫、蛋白尿を示唆する泡沫尿、体重増加。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "82 回/分（整）",
+        "bp": "132/78 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼浮腫あり。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "平坦・軟。腹水少量疑い。",
+        "extremities": "両下腿圧痕性浮腫。",
+        "other": "皮膚蒼白なし。"
+      }
+    }
+  },
+  {
+    "id": "case-011",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "67",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "6. 意識障害"
+    },
+    "hiddenSettings": {
+      "aim": "意識障害で直ちに血糖測定を行い、低血糖を見逃さない。",
+      "actingGuideline": "冷汗が強く、呼びかけには開眼するが混乱している。",
+      "differentialDiagnosis": "第一診断: 低血糖\n鑑別: 脳梗塞、てんかん、薬物中毒、ナトリウム代謝異常"
+    },
+    "patientInfo": {
+      "hpi": "糖尿病治療中。昼食を抜いた後から冷汗とふらつきが出現し、会話がかみ合わなくなった。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「糖尿病患者の急性意識変容と自律神経症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.2 ℃",
+        "pulse": "110 回/分（整）",
+        "bp": "152/88 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "外傷なし。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "四肢冷感あり。",
+        "other": "JCS 2。明らかな片麻痺なし。"
+      }
+    }
+  },
+  {
+    "id": "case-012",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "72",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "6. 意識障害"
+    },
+    "hiddenSettings": {
+      "aim": "意識障害で脳血管障害を疑い、発症時刻と局在神経徴候を評価する。",
+      "actingGuideline": "左を向いたまま、呼びかけへの反応が鈍い。",
+      "differentialDiagnosis": "第一診断: 脳出血\n鑑別: 脳梗塞、くも膜下出血、低血糖、てんかん"
+    },
+    "patientInfo": {
+      "hpi": "家族との会話中に突然激しい頭痛を訴え、右手足が動かなくなって意識が低下した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「突発する頭痛、片麻痺、意識障害。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.0 ℃",
+        "pulse": "88 回/分（整）",
+        "bp": "214/116 mmHg",
+        "resp": "22 回/分",
+        "spo2": "95 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "瞳孔不同なし。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "JCS 20。右上下肢麻痺、右Babinski反射陽性。"
+      }
+    }
+  },
+  {
+    "id": "case-013",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "76",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "7. 失神"
+    },
+    "hiddenSettings": {
+      "aim": "心原性失神を疑い、発症状況、持続時間、胸痛・動悸を聴取する。",
+      "actingGuideline": "今は意識清明だが、急に目の前が真っ暗になったと話す。",
+      "differentialDiagnosis": "第一診断: 不整脈\n鑑別: てんかん、肺塞栓症、大動脈弁狭窄症、神経調節性失神"
+    },
+    "patientInfo": {
+      "hpi": "歩行中に前触れなく突然倒れ、数十秒で意識が戻った。最近動悸を自覚している。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「前駆症状の乏しい労作中失神と動悸。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "42 回/分（不整）",
+        "bp": "108/62 mmHg",
+        "resp": "18 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "外傷軽微。",
+        "chest": "徐脈、不整。心雑音なし。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-014",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 久美",
+      "age": "58",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "7. 失神"
+    },
+    "hiddenSettings": {
+      "aim": "失神の致死的原因として肺塞栓症を考え、VTEリスクを聴取する。",
+      "actingGuideline": "不安そうに速く呼吸し、胸が痛いと訴える。",
+      "differentialDiagnosis": "第一診断: 肺塞栓症\n鑑別: 不整脈、急性冠症候群、てんかん、神経調節性失神"
+    },
+    "patientInfo": {
+      "hpi": "長時間の航空機移動翌日、突然息苦しくなり胸痛を伴って失神した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「静脈血栓リスク後の呼吸困難、胸痛、失神。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識清明。",
+        "temp": "37.2 ℃",
+        "pulse": "124 回/分（整）",
+        "bp": "92/58 mmHg",
+        "resp": "30 回/分",
+        "spo2": "88 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈軽度怒張。",
+        "chest": "Ⅱ音肺動脈成分亢進。肺野は清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "左下腿腫脹と圧痛。",
+        "other": "意識清明。"
+      }
+    }
+  },
+  {
+    "id": "case-015",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "19",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "8. けいれん"
+    },
+    "hiddenSettings": {
+      "aim": "けいれんの目撃情報、持続時間、発作後状態を確認し、てんかんを評価する。",
+      "actingGuideline": "眠そうで、発作のことは覚えていない。",
+      "differentialDiagnosis": "第一診断: てんかん\n鑑別: 低血糖、脳炎、脳腫瘍、頭部外傷"
+    },
+    "patientInfo": {
+      "hpi": "睡眠不足が続いた後、全身を硬直させて1分ほどけいれんし、その後眠り込んだ。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「誘因を伴う全身性強直間代発作と発作後状態。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "発作後傾眠。局在神経徴候なし。",
+        "temp": "36.8 ℃",
+        "pulse": "96 回/分（整）",
+        "bp": "126/74 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "舌側縁に咬傷。",
+        "chest": "呼吸音清。心雑音なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "外傷なし。",
+        "other": "発作後傾眠。局在神経徴候なし。"
+      }
+    }
+  },
+  {
+    "id": "case-016",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 宏",
+      "age": "2",
+      "gender": "男性",
+      "setting": "小児救急外来",
+      "chiefComplaint": "8. けいれん"
+    },
+    "hiddenSettings": {
+      "aim": "年齢、発熱、発作時間、局在性、反復の有無を確認する。",
+      "actingGuideline": "母親に抱かれ、眠そうだが刺激で泣く。",
+      "differentialDiagnosis": "第一診断: 熱性けいれん\n鑑別: 髄膜炎、脳炎、低血糖、てんかん"
+    },
+    "patientInfo": {
+      "hpi": "発熱中に全身性けいれんが約2分続いた。けいれん後は泣き、その後眠った。",
+      "careBehavior": "症状が改善せず、小児救急外来を受診した。",
+      "explanatoryModel": "「乳幼児の発熱に伴う短時間の全身けいれん。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "発作後傾眠。左右差なし。",
+        "temp": "39.1 ℃",
+        "pulse": "148 回/分（整）",
+        "bp": "92/54 mmHg",
+        "resp": "28 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "項部硬直なし。咽頭発赤。",
+        "chest": "呼吸音清。",
+        "abdomen": "腹部軟。",
+        "extremities": "発疹なし。",
+        "other": "発作後傾眠。左右差なし。"
+      }
+    }
+  },
+  {
+    "id": "case-017",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 花子",
+      "age": "55",
+      "gender": "女性",
+      "setting": "耳鼻科外来",
+      "chiefComplaint": "9. めまい"
+    },
+    "hiddenSettings": {
+      "aim": "末梢性めまいを疑い、持続時間、誘発、聴覚症状を確認する。",
+      "actingGuideline": "頭を動かすのを避けてゆっくり話す。",
+      "differentialDiagnosis": "第一診断: 良性発作性頭位めまい症\n鑑別: Ménière病、前庭神経炎、脳梗塞、脳出血"
+    },
+    "patientInfo": {
+      "hpi": "寝返りや起き上がりで数十秒の回転性めまいを繰り返す。難聴や耳鳴りはない。",
+      "careBehavior": "症状が改善せず、耳鼻科外来を受診した。",
+      "explanatoryModel": "「頭位変換で誘発される短時間の回転性めまい。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "76 回/分（整）",
+        "bp": "132/78 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "聴力左右差なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "Dix-Hallpikeで回旋性眼振を誘発。"
+      }
+    }
+  },
+  {
+    "id": "case-018",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 健",
+      "age": "69",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "9. めまい"
+    },
+    "hiddenSettings": {
+      "aim": "中枢性めまいを疑い、神経症状と歩行を評価する。",
+      "actingGuideline": "座位でも体が右に傾き、吐き気を訴える。",
+      "differentialDiagnosis": "第一診断: 脳梗塞（小脳梗塞）\n鑑別: 良性発作性頭位めまい症、前庭神経炎、脳出血、Ménière病"
+    },
+    "patientInfo": {
+      "hpi": "今朝突然ふらつきと回転性めまいが出現し、まっすぐ歩けなくなった。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「高齢者の急性持続性めまいと歩行失調。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "88 回/分（不整）",
+        "bp": "176/96 mmHg",
+        "resp": "18 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球運動で注視方向性眼振。",
+        "chest": "心拍不整。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "右測定障害、体幹失調。"
+      }
+    }
+  },
+  {
+    "id": "case-019",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 恵",
+      "age": "62",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "10. 浮腫"
+    },
+    "hiddenSettings": {
+      "aim": "浮腫の左右差と急性発症を評価し、DVTを疑う。",
+      "actingGuideline": "左脚が張って痛いと訴える。",
+      "differentialDiagnosis": "第一診断: 深部静脈血栓症\n鑑別: 蜂巣炎、心不全、リンパ浮腫、薬剤性浮腫"
+    },
+    "patientInfo": {
+      "hpi": "骨折手術後に左下腿だけが腫れ、痛みと熱感が出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「片側性下肢浮腫と血栓リスク。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.2 ℃",
+        "pulse": "92 回/分（整）",
+        "bp": "128/76 mmHg",
+        "resp": "18 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈怒張なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "左下腿周径増大、圧痛、熱感。",
+        "other": "チアノーゼなし。"
+      }
+    }
+  },
+  {
+    "id": "case-020",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 誠",
+      "age": "64",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "10. 浮腫"
+    },
+    "hiddenSettings": {
+      "aim": "全身性浮腫の原因として肝疾患を評価し、飲酒歴と腹水徴候を確認する。",
+      "actingGuideline": "腹部膨満を気にし、食事が入りにくいと話す。",
+      "differentialDiagnosis": "第一診断: 肝硬変\n鑑別: 心不全、ネフローゼ症候群、甲状腺機能低下症"
+    },
+    "patientInfo": {
+      "hpi": "数か月で腹部が張り、両脚がむくむようになった。長年多量飲酒している。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「腹水と両下肢浮腫を伴う慢性肝疾患。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "88 回/分（整）",
+        "bp": "104/64 mmHg",
+        "resp": "18 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球結膜黄染。くも状血管腫。",
+        "chest": "肺底部呼吸音やや減弱。",
+        "abdomen": "腹部膨隆、波動あり。",
+        "extremities": "両下腿圧痕性浮腫。",
+        "other": "手掌紅斑。"
+      }
+    }
+  },
+  {
+    "id": "case-021",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 彩",
+      "age": "70",
+      "gender": "女性",
+      "setting": "皮膚科外来",
+      "chiefComplaint": "11. 発疹"
+    },
+    "hiddenSettings": {
+      "aim": "発疹の分布、疼痛、発症順序を確認し、帯状疱疹を診断する。",
+      "actingGuideline": "服が触れるだけでも痛いと訴える。",
+      "differentialDiagnosis": "第一診断: 帯状疱疹\n鑑別: 単純ヘルペス、接触皮膚炎、蜂巣炎、薬疹"
+    },
+    "patientInfo": {
+      "hpi": "3日前から右胸部がピリピリ痛み、本日水疱を伴う発疹が帯状に出現した。",
+      "careBehavior": "症状が改善せず、皮膚科外来を受診した。",
+      "explanatoryModel": "「片側皮節に一致する疼痛性小水疱。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.8 ℃",
+        "pulse": "78 回/分（整）",
+        "bp": "136/80 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "顔面病変なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "右第6胸髄領域に集簇水疱。正中を越えない。",
+        "other": "感覚過敏あり。"
+      }
+    }
+  },
+  {
+    "id": "case-022",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 修",
+      "age": "48",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "11. 発疹"
+    },
+    "hiddenSettings": {
+      "aim": "発疹患者で薬歴、粘膜病変、呼吸循環症状を確認する。",
+      "actingGuideline": "全身を掻きながら、薬を飲み始めてからだと話す。",
+      "differentialDiagnosis": "第一診断: 薬疹\n鑑別: ウイルス性発疹症、蕁麻疹、アトピー性皮膚炎、SJS/TEN"
+    },
+    "patientInfo": {
+      "hpi": "抗菌薬開始5日後から全身に赤い発疹と痒みが出現した。呼吸苦はない。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「新規薬剤後の左右対称性紅斑。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.0 ℃",
+        "pulse": "86 回/分（整）",
+        "bp": "128/74 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔粘膜病変なし。",
+        "chest": "喘鳴なし。心雑音なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "体幹優位の斑状丘疹。",
+        "other": "表皮剥離なし。"
+      }
+    }
+  },
+  {
+    "id": "case-023",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "77",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "12. 咳・痰"
+    },
+    "hiddenSettings": {
+      "aim": "咳・痰から肺炎を疑い、重症度と呼吸状態を評価する。",
+      "actingGuideline": "咳き込みながら短い文で話す。",
+      "differentialDiagnosis": "第一診断: 肺炎\n鑑別: 気管支炎、肺結核、心不全、肺癌"
+    },
+    "patientInfo": {
+      "hpi": "3日前から発熱、湿性咳嗽、黄色痰があり、息苦しさが増悪した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「高齢者の発熱、膿性痰、局在性肺所見。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "38.5 ℃",
+        "pulse": "108 回/分（整）",
+        "bp": "112/66 mmHg",
+        "resp": "26 回/分",
+        "spo2": "91 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内乾燥。",
+        "chest": "右下肺野にcoarse crackles。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "軽度チアノーゼ。"
+      }
+    }
+  },
+  {
+    "id": "case-024",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 真理",
+      "age": "24",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "12. 咳・痰"
+    },
+    "hiddenSettings": {
+      "aim": "咳・痰患者で喘息既往、誘因、重症度を確認する。",
+      "actingGuideline": "前屈みで呼吸し、息を吐くのが苦しいと訴える。",
+      "differentialDiagnosis": "第一診断: 気管支喘息\n鑑別: 肺炎、アナフィラキシー、COPD、気胸"
+    },
+    "patientInfo": {
+      "hpi": "夜間から咳と喘鳴が出現し、会話時に息苦しい。花粉時期に悪化する。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「反復する喘鳴と夜間咳嗽。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "116 回/分（整）",
+        "bp": "138/82 mmHg",
+        "resp": "28 回/分",
+        "spo2": "93 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "咽頭発赤なし。",
+        "chest": "両肺野に呼気性wheeze。呼気延長。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "会話は短文。"
+      }
+    }
+  },
+  {
+    "id": "case-025",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "43",
+      "gender": "男性",
+      "setting": "呼吸器内科外来",
+      "chiefComplaint": "13. 血痰・喀血"
+    },
+    "hiddenSettings": {
+      "aim": "血痰で結核を想定し、曝露歴、体重減少、寝汗を聴取する。",
+      "actingGuideline": "痩せて疲れた様子で、血が混じり驚いたと話す。",
+      "differentialDiagnosis": "第一診断: 肺結核\n鑑別: 肺癌、気管支拡張症、肺炎"
+    },
+    "patientInfo": {
+      "hpi": "1か月続く咳、微熱、寝汗、体重減少があり、今朝血痰を認めた。",
+      "careBehavior": "症状が改善せず、呼吸器内科外来を受診した。",
+      "explanatoryModel": "「慢性咳嗽と全身症を伴う血痰。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.6 ℃",
+        "pulse": "94 回/分（整）",
+        "bp": "122/70 mmHg",
+        "resp": "20 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸部リンパ節小豆大。",
+        "chest": "右肺尖部に呼吸音低下。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "BMI 18.2。"
+      }
+    }
+  },
+  {
+    "id": "case-026",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 健",
+      "age": "71",
+      "gender": "男性",
+      "setting": "呼吸器内科外来",
+      "chiefComplaint": "13. 血痰・喀血"
+    },
+    "hiddenSettings": {
+      "aim": "血痰の悪性原因を考え、喫煙歴、持続期間、全身症を評価する。",
+      "actingGuideline": "低い声で話し、血痰が続くことを心配している。",
+      "differentialDiagnosis": "第一診断: 肺癌\n鑑別: 肺結核、気管支拡張症、肺炎"
+    },
+    "patientInfo": {
+      "hpi": "2か月続く咳と血痰、嗄声があり、半年で5kg減少した。喫煙歴50年。",
+      "careBehavior": "症状が改善せず、呼吸器内科外来を受診した。",
+      "explanatoryModel": "「高齢喫煙者の持続する血痰と体重減少。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.8 ℃",
+        "pulse": "88 回/分（整）",
+        "bp": "130/76 mmHg",
+        "resp": "18 回/分",
+        "spo2": "95 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "鎖骨上リンパ節を小さく触知。",
+        "chest": "右上肺野で呼吸音減弱。",
+        "abdomen": "平坦・軟。",
+        "extremities": "ばち指軽度。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-027",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "28",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "14. 呼吸困難"
+    },
+    "hiddenSettings": {
+      "aim": "呼吸困難の緊急原因として緊張性気胸を迅速に診断する。",
+      "actingGuideline": "極度に苦しそうで単語のみ話す。",
+      "differentialDiagnosis": "第一診断: 緊張性気胸\n鑑別: 肺塞栓症、心タンポナーデ、血胸、気管支喘息"
+    },
+    "patientInfo": {
+      "hpi": "バイク事故後、突然強い呼吸困難と右胸痛が出現し、急速に悪化した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「外傷後の片側呼吸音消失と循環不全。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識やや混濁。",
+        "temp": "36.4 ℃",
+        "pulse": "132 回/分（整）",
+        "bp": "78/50 mmHg",
+        "resp": "36 回/分",
+        "spo2": "82 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈怒張、気管左偏位。",
+        "chest": "右呼吸音消失、右胸郭過膨張。",
+        "abdomen": "平坦・軟。",
+        "extremities": "冷汗、末梢冷感。",
+        "other": "意識やや混濁。"
+      }
+    }
+  },
+  {
+    "id": "case-028",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "81",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "14. 呼吸困難"
+    },
+    "hiddenSettings": {
+      "aim": "呼吸困難で心不全徴候を評価し、発症経過と体重増加を確認する。",
+      "actingGuideline": "座位で呼吸し、横になるのを嫌がる。",
+      "differentialDiagnosis": "第一診断: 心不全\n鑑別: 肺炎、COPD、肺塞栓症、間質性肺疾患"
+    },
+    "patientInfo": {
+      "hpi": "数日前から労作時息切れが悪化し、昨夜は横になると苦しく座って眠った。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「起坐呼吸と肺うっ血を伴う呼吸困難。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "110 回/分（不整）",
+        "bp": "168/94 mmHg",
+        "resp": "30 回/分",
+        "spo2": "86 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈怒張あり。",
+        "chest": "両側に湿性ラ音、Ⅲ音。",
+        "abdomen": "肝腫大軽度。",
+        "extremities": "両下腿浮腫。",
+        "other": "冷汗あり。"
+      }
+    }
+  },
+  {
+    "id": "case-029",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "63",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "15. 胸痛"
+    },
+    "hiddenSettings": {
+      "aim": "ACSを念頭に系統的問診と迅速な心電図評価を行う。",
+      "actingGuideline": "胸の中央を握りこぶしでさすり、不安そうに話す。",
+      "differentialDiagnosis": "第一診断: 急性冠症候群\n鑑別: 急性大動脈解離、肺塞栓症、気胸、GERD"
+    },
+    "patientInfo": {
+      "hpi": "夕食後に突然、胸中央の圧迫痛が30分以上持続し、冷汗と左肩への放散痛を伴う。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「持続する圧迫性胸痛と自律神経症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "98 回/分（整）",
+        "bp": "154/92 mmHg",
+        "resp": "22 回/分",
+        "spo2": "95 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸静脈怒張なし。",
+        "chest": "心音整。肺野清。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "冷感あり。浮腫なし。",
+        "other": "冷汗顕著。"
+      }
+    }
+  },
+  {
+    "id": "case-030",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 修",
+      "age": "69",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "15. 胸痛"
+    },
+    "hiddenSettings": {
+      "aim": "胸痛の致死的原因として大動脈解離を疑い、痛みの性状と血圧左右差を確認する。",
+      "actingGuideline": "強い苦悶表情で、背中まで裂けるようだと訴える。",
+      "differentialDiagnosis": "第一診断: 急性大動脈解離\n鑑別: 急性冠症候群、肺塞栓症、心膜炎、気胸"
+    },
+    "patientInfo": {
+      "hpi": "突然、引き裂かれるような前胸部痛が背中へ移動した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「突発する移動性激痛と血圧左右差。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.2 ℃",
+        "pulse": "104 回/分（整）",
+        "bp": "右198/106、左164/92 mmHg",
+        "resp": "24 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸部血管雑音なし。",
+        "chest": "拡張期雑音を軽度聴取。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "右橈骨動脈拍動減弱。",
+        "other": "神経学的左右差なし。"
+      }
+    }
+  },
+  {
+    "id": "case-031",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 由紀",
+      "age": "27",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "16. 動悸"
+    },
+    "hiddenSettings": {
+      "aim": "動悸の発症様式、規則性、随伴症状を確認する。",
+      "actingGuideline": "胸に手を当て、急にドキドキし始めたと話す。",
+      "differentialDiagnosis": "第一診断: 不整脈（発作性上室性頻拍）\n鑑別: 甲状腺機能亢進症、パニック障害、貧血、不安障害"
+    },
+    "patientInfo": {
+      "hpi": "会議中に突然脈が速くなり、動悸が1時間続いている。胸痛や失神はない。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「突然発症・突然停止型の規則正しい頻拍。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識清明。",
+        "temp": "36.5 ℃",
+        "pulse": "182 回/分（整）",
+        "bp": "108/70 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "甲状腺腫大なし。",
+        "chest": "頻拍、心雑音なし。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "意識清明。"
+      }
+    }
+  },
+  {
+    "id": "case-032",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 真理",
+      "age": "36",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "16. 動悸"
+    },
+    "hiddenSettings": {
+      "aim": "動悸の内分泌原因を考え、体重、耐暑性、便通、月経を聴取する。",
+      "actingGuideline": "落ち着かず早口で、暑くて汗が止まらないと話す。",
+      "differentialDiagnosis": "第一診断: 甲状腺機能亢進症\n鑑別: 不整脈、鉄欠乏性貧血、パニック障害"
+    },
+    "patientInfo": {
+      "hpi": "数か月前から動悸、発汗、体重減少、手の震えが続く。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「慢性動悸と甲状腺中毒症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.1 ℃",
+        "pulse": "118 回/分（整）",
+        "bp": "146/72 mmHg",
+        "resp": "18 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "びまん性甲状腺腫。眼球突出軽度。",
+        "chest": "頻脈。肺清。",
+        "abdomen": "腸蠕動亢進。",
+        "extremities": "浮腫なし。",
+        "other": "手指振戦。"
+      }
+    }
+  },
+  {
+    "id": "case-033",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "72",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "17. 嚥下困難"
+    },
+    "hiddenSettings": {
+      "aim": "器質的食道疾患を疑い、固形物・液体の順序と体重減少を確認する。",
+      "actingGuideline": "痩せた様子で、食べ物が胸で止まると話す。",
+      "differentialDiagnosis": "第一診断: 食道癌\n鑑別: 脳梗塞、扁桃炎、食道運動障害"
+    },
+    "patientInfo": {
+      "hpi": "3か月前から固形物がつかえ、最近は水分も飲み込みにくい。体重が6kg減った。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「進行性嚥下困難と体重減少。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "84 回/分（整）",
+        "bp": "118/70 mmHg",
+        "resp": "16 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸部リンパ節触知せず。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "嗄声軽度。"
+      }
+    }
+  },
+  {
+    "id": "case-034",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "78",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "17. 嚥下困難"
+    },
+    "hiddenSettings": {
+      "aim": "嚥下困難で脳卒中を疑い、発症時刻と神経所見を評価する。",
+      "actingGuideline": "唾液が口角から漏れ、話しにくそう。",
+      "differentialDiagnosis": "第一診断: 脳梗塞\n鑑別: 脳出血、扁桃炎、食道癌"
+    },
+    "patientInfo": {
+      "hpi": "朝食中に突然むせ込み、言葉が不明瞭になり、右手が動かしにくくなった。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「急性発症の嚥下障害と局在神経徴候。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "86 回/分（不整）",
+        "bp": "172/94 mmHg",
+        "resp": "18 回/分",
+        "spo2": "95 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "右口角下垂。咽頭反射低下。",
+        "chest": "心拍不整。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "構音障害、右上肢筋力低下。"
+      }
+    }
+  },
+  {
+    "id": "case-035",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "19",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "18. 腹痛"
+    },
+    "hiddenSettings": {
+      "aim": "腹痛の時間経過と部位移動を確認し、虫垂炎を診断する。",
+      "actingGuideline": "右下腹部をかばって歩く。",
+      "differentialDiagnosis": "第一診断: 急性虫垂炎\n鑑別: 急性胃腸炎、尿路結石、憩室炎、精巣捻転"
+    },
+    "patientInfo": {
+      "hpi": "昨日から臍周囲痛があり、今朝から右下腹部へ移動し、食欲低下と嘔気がある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「移動する腹痛と右下腹部限局圧痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.8 ℃",
+        "pulse": "102 回/分（整）",
+        "bp": "126/74 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "咽頭発赤なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "McBurney点圧痛、反跳痛軽度。",
+        "extremities": "浮腫なし。",
+        "other": "腸腰筋徴候陽性。"
+      }
+    }
+  },
+  {
+    "id": "case-036",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "31",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "18. 腹痛"
+    },
+    "hiddenSettings": {
+      "aim": "腹痛患者で妊娠可能性を確認し、破裂性異所性妊娠を除外する。",
+      "actingGuideline": "顔面蒼白で、立つと気が遠くなると訴える。",
+      "differentialDiagnosis": "第一診断: 異所性妊娠\n鑑別: 急性虫垂炎、卵巣嚢腫捻転、流産、尿路結石"
+    },
+    "patientInfo": {
+      "hpi": "月経が2週間遅れ、突然の右下腹部痛と少量の性器出血、ふらつきが出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「妊娠可能年齢女性の腹痛・無月経・出血。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "118 回/分（整）",
+        "bp": "86/52 mmHg",
+        "resp": "24 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜蒼白。",
+        "chest": "心音頻脈。肺清。",
+        "abdomen": "右下腹部圧痛と筋性防御。",
+        "extremities": "四肢冷感。",
+        "other": "少量の性器出血。"
+      }
+    }
+  },
+  {
+    "id": "case-037",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "67",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "19. 悪心・嘔吐"
+    },
+    "hiddenSettings": {
+      "aim": "嘔吐で腸閉塞を疑い、手術歴、便・ガス、腹部膨満を確認する。",
+      "actingGuideline": "腹部を抱え、波がある痛みと吐き気を訴える。",
+      "differentialDiagnosis": "第一診断: 腸閉塞\n鑑別: 急性胃腸炎、急性膵炎、消化性潰瘍、DKA"
+    },
+    "patientInfo": {
+      "hpi": "開腹手術歴があり、昨日から腹痛、腹部膨満、胆汁性嘔吐、排便停止がある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「術後患者の嘔吐、膨満、排便停止。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.0 ℃",
+        "pulse": "104 回/分（整）",
+        "bp": "118/72 mmHg",
+        "resp": "20 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内乾燥。",
+        "chest": "心肺異常なし。",
+        "abdomen": "腹部膨隆、金属音、びまん性圧痛。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で便塊なし。"
+      }
+    }
+  },
+  {
+    "id": "case-038",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 久美",
+      "age": "54",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "19. 悪心・嘔吐"
+    },
+    "hiddenSettings": {
+      "aim": "嘔吐の頭蓋内原因を考え、頭痛の発症様式と神経症状を確認する。",
+      "actingGuideline": "目を閉じて頭を抱え、動くと吐く。",
+      "differentialDiagnosis": "第一診断: くも膜下出血\n鑑別: 片頭痛、髄膜炎、脳出血、急性胃腸炎"
+    },
+    "patientInfo": {
+      "hpi": "突然『人生で最悪』の頭痛が起こり、直後から繰り返し嘔吐した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「雷鳴頭痛に伴う嘔吐。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.0 ℃",
+        "pulse": "96 回/分（整）",
+        "bp": "186/102 mmHg",
+        "resp": "20 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "項部硬直あり。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "JCS 1。明らかな麻痺なし。"
+      }
+    }
+  },
+  {
+    "id": "case-039",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "58",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "20. 吐血"
+    },
+    "hiddenSettings": {
+      "aim": "吐血の量・性状、薬剤歴、循環動態を評価する。",
+      "actingGuideline": "顔面蒼白で、吐いた物に血が混じったと不安そう。",
+      "differentialDiagnosis": "第一診断: 消化性潰瘍\n鑑別: 食道静脈瘤、胃癌、Mallory-Weiss症候群"
+    },
+    "patientInfo": {
+      "hpi": "NSAIDsを常用しており、突然コーヒー残渣様の嘔吐と黒色便が出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「NSAIDs背景の上部消化管出血。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "112 回/分（整）",
+        "bp": "94/58 mmHg",
+        "resp": "22 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜蒼白。",
+        "chest": "心音頻脈。肺清。",
+        "abdomen": "心窩部圧痛軽度。",
+        "extremities": "四肢冷感。",
+        "other": "直腸診で黒色便。"
+      }
+    }
+  },
+  {
+    "id": "case-040",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 宏",
+      "age": "56",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "20. 吐血"
+    },
+    "hiddenSettings": {
+      "aim": "吐血で門脈圧亢進症を想定し、肝疾患歴と循環状態を評価する。",
+      "actingGuideline": "血の付いた袋を持ち、ぐったりしている。",
+      "differentialDiagnosis": "第一診断: 食道静脈瘤\n鑑別: 消化性潰瘍、Mallory-Weiss症候群、胃癌"
+    },
+    "patientInfo": {
+      "hpi": "肝硬変で通院中。突然大量の鮮血を吐き、ふらつきがある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「肝硬変患者の大量吐血と出血性ショック。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識やや混濁。",
+        "temp": "36.1 ℃",
+        "pulse": "128 回/分（整）",
+        "bp": "78/44 mmHg",
+        "resp": "26 回/分",
+        "spo2": "95 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球結膜黄染。",
+        "chest": "頻脈。肺清。",
+        "abdomen": "腹水あり、脾腫疑い。",
+        "extremities": "冷汗、末梢冷感。",
+        "other": "意識やや混濁。"
+      }
+    }
+  },
+  {
+    "id": "case-041",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "73",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "21. 下血"
+    },
+    "hiddenSettings": {
+      "aim": "下血の色・量・腹痛の有無を確認し、憩室出血を疑う。",
+      "actingGuideline": "便器が真っ赤になったと驚いている。",
+      "differentialDiagnosis": "第一診断: 憩室出血\n鑑別: 大腸癌、虚血性大腸炎、痔核、消化性潰瘍"
+    },
+    "patientInfo": {
+      "hpi": "腹痛を伴わず突然大量の鮮血便が出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「高齢者の無痛性大量下血。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "106 回/分（整）",
+        "bp": "102/64 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜やや蒼白。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で鮮血付着。"
+      }
+    }
+  },
+  {
+    "id": "case-042",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "26",
+      "gender": "女性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "21. 下血"
+    },
+    "hiddenSettings": {
+      "aim": "下血で炎症性腸疾患を考え、便回数、粘液、体重変化を確認する。",
+      "actingGuideline": "疲れた様子で、外出が怖いと話す。",
+      "differentialDiagnosis": "第一診断: 炎症性腸疾患（潰瘍性大腸炎）\n鑑別: 感染性腸炎、大腸癌、虚血性大腸炎、痔核"
+    },
+    "patientInfo": {
+      "hpi": "1か月前から粘血便が1日8回あり、腹痛と体重減少がある。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「慢性の血性下痢と腹痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.4 ℃",
+        "pulse": "98 回/分（整）",
+        "bp": "112/68 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜軽度蒼白。",
+        "chest": "心肺異常なし。",
+        "abdomen": "左下腹部に軽度圧痛。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で粘血便。"
+      }
+    }
+  },
+  {
+    "id": "case-043",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "70",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "22. 便秘"
+    },
+    "hiddenSettings": {
+      "aim": "器質的便秘を疑い、警告症状と便性状を確認する。",
+      "actingGuideline": "便が出にくく、最近痩せたと心配している。",
+      "differentialDiagnosis": "第一診断: 大腸癌\n鑑別: 便秘症、過敏性腸症候群、薬剤性、甲状腺機能低下症"
+    },
+    "patientInfo": {
+      "hpi": "3か月前から便が細くなり、便秘と下痢を繰り返し、体重が減った。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「高齢者の便通変化、便柱狭小化、体重減少。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "82 回/分（整）",
+        "bp": "126/74 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜軽度蒼白。",
+        "chest": "心肺異常なし。",
+        "abdomen": "左下腹部に軽度圧痛。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で腫瘤触知せず。"
+      }
+    }
+  },
+  {
+    "id": "case-044",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "59",
+      "gender": "女性",
+      "setting": "緩和ケア外来",
+      "chiefComplaint": "22. 便秘"
+    },
+    "hiddenSettings": {
+      "aim": "便秘で薬剤歴を確認し、腸閉塞徴候を除外する。",
+      "actingGuideline": "お腹が張って苦しいと話す。",
+      "differentialDiagnosis": "第一診断: 薬剤性便秘（オピオイド）\n鑑別: 腸閉塞、大腸癌、甲状腺機能低下症、便秘症"
+    },
+    "patientInfo": {
+      "hpi": "鎮痛薬開始後から排便が5日なく、腹部膨満がある。嘔吐はない。",
+      "careBehavior": "症状が改善せず、緩和ケア外来を受診した。",
+      "explanatoryModel": "「オピオイド開始後の便秘。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "78 回/分（整）",
+        "bp": "122/72 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内やや乾燥。",
+        "chest": "心肺異常なし。",
+        "abdomen": "軽度膨隆、軟、圧痛なし。腸音低下。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で硬便。"
+      }
+    }
+  },
+  {
+    "id": "case-045",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "23",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "23. 下痢"
+    },
+    "hiddenSettings": {
+      "aim": "下痢の発症、食事歴、便性状、脱水を評価する。",
+      "actingGuideline": "口渇が強く、トイレから離れられないと話す。",
+      "differentialDiagnosis": "第一診断: 急性胃腸炎\n鑑別: 炎症性腸疾患、過敏性腸症候群、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "前夜に生ものを食べ、今朝から水様便10回と嘔吐、腹痛がある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「急性発症の嘔吐・水様下痢と脱水。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.8 ℃",
+        "pulse": "112 回/分（整）",
+        "bp": "104/64 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内乾燥。",
+        "chest": "心肺異常なし。",
+        "abdomen": "びまん性軽度圧痛。反跳痛なし。",
+        "extremities": "皮膚ツルゴール低下。",
+        "other": "血便なし。"
+      }
+    }
+  },
+  {
+    "id": "case-046",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 久美",
+      "age": "40",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "23. 下痢"
+    },
+    "hiddenSettings": {
+      "aim": "慢性下痢で内分泌原因を考え、体重・動悸・耐暑性を確認する。",
+      "actingGuideline": "早口で、暑がりになったと話す。",
+      "differentialDiagnosis": "第一診断: 甲状腺機能亢進症\n鑑別: 炎症性腸疾患、過敏性腸症候群、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "数か月続く軟便、体重減少、動悸、発汗がある。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「慢性下痢と甲状腺中毒症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.1 ℃",
+        "pulse": "108 回/分（整）",
+        "bp": "142/70 mmHg",
+        "resp": "18 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "甲状腺びまん性腫大。",
+        "chest": "頻脈。肺清。",
+        "abdomen": "腸蠕動亢進。圧痛なし。",
+        "extremities": "浮腫なし。",
+        "other": "手指振戦。"
+      }
+    }
+  },
+  {
+    "id": "case-047",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "75",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "24. 黄疸"
+    },
+    "hiddenSettings": {
+      "aim": "黄疸で発熱・腹痛を確認し、急性胆管炎の重症度を評価する。",
+      "actingGuideline": "悪寒が強く、右上腹部を押さえる。",
+      "differentialDiagnosis": "第一診断: 胆管炎\n鑑別: 急性肝炎、胆嚢炎、膵癌、溶血性貧血"
+    },
+    "patientInfo": {
+      "hpi": "発熱、右上腹部痛、皮膚の黄染が同時に出現した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「Charcot三徴を呈する閉塞性胆道感染。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識清明。",
+        "temp": "39.2 ℃",
+        "pulse": "118 回/分（整）",
+        "bp": "96/58 mmHg",
+        "resp": "24 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球結膜黄染。",
+        "chest": "心音頻脈。肺清。",
+        "abdomen": "右季肋部圧痛。Murphy徴候不明瞭。",
+        "extremities": "四肢冷感。",
+        "other": "意識清明。"
+      }
+    }
+  },
+  {
+    "id": "case-048",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 真理",
+      "age": "28",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "24. 黄疸"
+    },
+    "hiddenSettings": {
+      "aim": "黄疸で薬剤、感染曝露、便尿色、腹痛を聴取する。",
+      "actingGuideline": "疲れた様子で、尿の色が紅茶のようだと話す。",
+      "differentialDiagnosis": "第一診断: 急性肝炎\n鑑別: 胆管炎、胆管癌、溶血性貧血、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "1週間前から倦怠感と食欲低下があり、尿が濃くなり、家族に目が黄色いと言われた。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「前駆症状と褐色尿を伴う肝細胞性黄疸。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.3 ℃",
+        "pulse": "92 回/分（整）",
+        "bp": "118/72 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球結膜黄染。",
+        "chest": "心肺異常なし。",
+        "abdomen": "右季肋部に軽度圧痛、肝腫大軽度。",
+        "extremities": "浮腫なし。",
+        "other": "皮疹なし。"
+      }
+    }
+  },
+  {
+    "id": "case-049",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "61",
+      "gender": "男性",
+      "setting": "消化器内科外来",
+      "chiefComplaint": "25. 腹部膨隆・腫瘤"
+    },
+    "hiddenSettings": {
+      "aim": "腹部膨隆で腹水か腫瘤かを鑑別し、肝疾患徴候を評価する。",
+      "actingGuideline": "腹が張って息苦しいと訴える。",
+      "differentialDiagnosis": "第一診断: 肝硬変（腹水）\n鑑別: 腸閉塞、妊娠、巨大卵巣腫瘍、心不全"
+    },
+    "patientInfo": {
+      "hpi": "数か月で腹囲が増え、食欲低下と両脚のむくみがある。長期飲酒歴あり。",
+      "careBehavior": "症状が改善せず、消化器内科外来を受診した。",
+      "explanatoryModel": "「慢性肝疾患に伴う腹水。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "90 回/分（整）",
+        "bp": "108/66 mmHg",
+        "resp": "20 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "黄疸軽度、くも状血管腫。",
+        "chest": "肺底部呼吸音低下。",
+        "abdomen": "腹部膨隆、波動、移動性濁音。",
+        "extremities": "両下腿浮腫。",
+        "other": "手掌紅斑。"
+      }
+    }
+  },
+  {
+    "id": "case-050",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "75",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "25. 腹部膨隆・腫瘤"
+    },
+    "hiddenSettings": {
+      "aim": "腹部膨隆で腸閉塞を疑い、手術歴と排便・排ガスを確認する。",
+      "actingGuideline": "腹部を押さえ、周期的な痛みを訴える。",
+      "differentialDiagnosis": "第一診断: 腸閉塞\n鑑別: 肝硬変、鼠径ヘルニア、妊娠"
+    },
+    "patientInfo": {
+      "hpi": "開腹手術歴があり、腹部が急に張って痛み、嘔吐と排便・排ガス停止がある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「急性腹部膨隆と通過障害症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.1 ℃",
+        "pulse": "106 回/分（整）",
+        "bp": "114/70 mmHg",
+        "resp": "20 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内乾燥。",
+        "chest": "心肺異常なし。",
+        "abdomen": "著明な膨隆、金属音、びまん性圧痛。",
+        "extremities": "浮腫なし。",
+        "other": "ヘルニア嵌頓なし。"
+      }
+    }
+  },
+  {
+    "id": "case-051",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 恵",
+      "age": "20",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "26. リンパ節腫脹"
+    },
+    "hiddenSettings": {
+      "aim": "リンパ節腫脹で感染症を考え、部位、圧痛、咽頭所見を評価する。",
+      "actingGuideline": "喉が痛く、首のしこりが気になると話す。",
+      "differentialDiagnosis": "第一診断: 伝染性単核球症\n鑑別: 扁桃炎、風疹、結核、悪性リンパ腫"
+    },
+    "patientInfo": {
+      "hpi": "発熱、咽頭痛、強い倦怠感と両側頸部リンパ節腫脹がある。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「若年者の発熱・咽頭炎・後頸部リンパ節腫脹。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "意識清明。",
+        "temp": "38.4 ℃",
+        "pulse": "102 回/分（整）",
+        "bp": "116/70 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "扁桃腫大と白苔、後頸部リンパ節腫脹。",
+        "chest": "心肺異常なし。",
+        "abdomen": "脾腫軽度。",
+        "extremities": "発疹なし。",
+        "other": "意識清明。"
+      }
+    }
+  },
+  {
+    "id": "case-052",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 誠",
+      "age": "58",
+      "gender": "男性",
+      "setting": "血液内科外来",
+      "chiefComplaint": "26. リンパ節腫脹"
+    },
+    "hiddenSettings": {
+      "aim": "悪性リンパ腫を疑い、増大速度、圧痛、全身症を確認する。",
+      "actingGuideline": "首のしこりを触れながら、最近寝汗がひどいと話す。",
+      "differentialDiagnosis": "第一診断: 悪性リンパ腫\n鑑別: 結核、伝染性単核球症、転移性癌、扁桃炎"
+    },
+    "patientInfo": {
+      "hpi": "3か月前から痛みのない頸部腫瘤が徐々に大きくなり、寝汗と体重減少がある。",
+      "careBehavior": "症状が改善せず、血液内科外来を受診した。",
+      "explanatoryModel": "「無痛性リンパ節腫脹とB症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.4 ℃",
+        "pulse": "88 回/分（整）",
+        "bp": "124/76 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "左頸部に弾性硬・無痛性リンパ節。",
+        "chest": "心肺異常なし。",
+        "abdomen": "肝脾腫軽度。",
+        "extremities": "浮腫なし。",
+        "other": "BMI低下。"
+      }
+    }
+  },
+  {
+    "id": "case-053",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "72",
+      "gender": "男性",
+      "setting": "泌尿器科外来",
+      "chiefComplaint": "27. 尿量・排尿の異常"
+    },
+    "hiddenSettings": {
+      "aim": "排尿異常で蓄尿・排尿症状を分け、前立腺疾患を評価する。",
+      "actingGuideline": "トイレに時間がかかると困った様子で話す。",
+      "differentialDiagnosis": "第一診断: 前立腺肥大症\n鑑別: 前立腺癌、神経因性膀胱、尿路感染症、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "数年前から尿線が細く、開始に時間がかかり、夜間頻尿と残尿感がある。",
+      "careBehavior": "症状が改善せず、泌尿器科外来を受診した。",
+      "explanatoryModel": "「高齢男性の閉塞性下部尿路症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "74 回/分（整）",
+        "bp": "136/80 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "下腹部膨隆なし。",
+        "extremities": "浮腫なし。",
+        "other": "直腸診で弾性硬ではない対称性前立腺腫大。"
+      }
+    }
+  },
+  {
+    "id": "case-054",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 久美",
+      "age": "47",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "27. 尿量・排尿の異常"
+    },
+    "hiddenSettings": {
+      "aim": "排尿異常で多尿を捉え、糖尿病症状を確認する。",
+      "actingGuideline": "水のボトルを持ち、常に喉が渇くと話す。",
+      "differentialDiagnosis": "第一診断: 糖尿病\n鑑別: 尿崩症、尿路感染症、過活動膀胱、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "数か月前から尿量が増え、口渇が強く、夜間も何度も排尿する。体重も減った。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「多尿・口渇・体重減少。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "92 回/分（整）",
+        "bp": "132/78 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "口腔内やや乾燥。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "足底感覚軽度低下。"
+      }
+    }
+  },
+  {
+    "id": "case-055",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "45",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "28. 血尿"
+    },
+    "hiddenSettings": {
+      "aim": "血尿で疼痛の性状・放散、発熱、排尿症状を確認する。",
+      "actingGuideline": "じっとしていられず、体位を何度も変える。",
+      "differentialDiagnosis": "第一診断: 尿路結石\n鑑別: 腎細胞癌、尿路感染症、糸球体腎炎、膀胱癌"
+    },
+    "patientInfo": {
+      "hpi": "突然の左側腹部疝痛が鼠径部へ放散し、赤い尿が出た。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「疝痛発作と肉眼的血尿。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.8 ℃",
+        "pulse": "104 回/分（整）",
+        "bp": "158/92 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "左側腹部圧痛、腹膜刺激徴候なし。",
+        "extremities": "左CVA叩打痛。",
+        "other": "浮腫なし。"
+      }
+    }
+  },
+  {
+    "id": "case-056",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 宏",
+      "age": "68",
+      "gender": "男性",
+      "setting": "泌尿器科外来",
+      "chiefComplaint": "28. 血尿"
+    },
+    "hiddenSettings": {
+      "aim": "血尿で悪性腫瘍を考え、疼痛、喫煙、反復性を確認する。",
+      "actingGuideline": "痛くないのに血が出たことを不安に感じている。",
+      "differentialDiagnosis": "第一診断: 膀胱癌\n鑑別: 尿路結石、尿路感染症、腎細胞癌、糸球体腎炎"
+    },
+    "patientInfo": {
+      "hpi": "痛みを伴わない肉眼的血尿を数回認めた。長期喫煙歴がある。",
+      "careBehavior": "症状が改善せず、泌尿器科外来を受診した。",
+      "explanatoryModel": "「高齢喫煙者の無痛性肉眼的血尿。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "80 回/分（整）",
+        "bp": "138/82 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜正常。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "浮腫なし。",
+        "other": "CVA叩打痛なし。"
+      }
+    }
+  },
+  {
+    "id": "case-057",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 花子",
+      "age": "30",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "29. 月経異常"
+    },
+    "hiddenSettings": {
+      "aim": "月経異常で妊娠可能性を最優先に確認し、異所性妊娠を除外する。",
+      "actingGuideline": "顔色が悪く、妊娠の可能性はあると答える。",
+      "differentialDiagnosis": "第一診断: 異所性妊娠\n鑑別: 流産、子宮内膜症、月経困難症、子宮体癌"
+    },
+    "patientInfo": {
+      "hpi": "月経が3週間遅れ、少量出血と片側下腹部痛、ふらつきがある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「無月経後の出血と腹痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "112 回/分（整）",
+        "bp": "90/56 mmHg",
+        "resp": "22 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼瞼結膜やや蒼白。",
+        "chest": "心音頻脈。肺清。",
+        "abdomen": "左下腹部圧痛、反跳痛軽度。",
+        "extremities": "冷感あり。",
+        "other": "少量性器出血。"
+      }
+    }
+  },
+  {
+    "id": "case-058",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "51",
+      "gender": "女性",
+      "setting": "婦人科外来",
+      "chiefComplaint": "29. 月経異常"
+    },
+    "hiddenSettings": {
+      "aim": "月経異常で年齢、妊娠可能性、出血量、随伴症状を確認する。",
+      "actingGuideline": "ほてりで夜眠れず疲れていると話す。",
+      "differentialDiagnosis": "第一診断: 更年期障害\n鑑別: 妊娠、甲状腺機能異常、子宮体癌、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "半年間月経周期が不規則で、ほてり、発汗、睡眠障害、気分の落ち込みがある。",
+      "careBehavior": "症状が改善せず、婦人科外来を受診した。",
+      "explanatoryModel": "「閉経移行期の月経不順と血管運動症状。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "82 回/分（整）",
+        "bp": "126/76 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "甲状腺腫大なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。圧痛なし。",
+        "extremities": "浮腫なし。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-059",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "35",
+      "gender": "男性",
+      "setting": "心療内科外来",
+      "chiefComplaint": "30. 不安・抑うつ"
+    },
+    "hiddenSettings": {
+      "aim": "不安・抑うつで期間、機能障害、希死念慮を評価する。",
+      "actingGuideline": "視線を落とし、小さな声で自分は役に立たないと話す。",
+      "differentialDiagnosis": "第一診断: うつ病\n鑑別: 甲状腺機能低下症、双極性障害、適応障害、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "2か月前から気分が落ち込み、何にも興味が持てず、眠れず、仕事に行けない。",
+      "careBehavior": "症状が改善せず、心療内科外来を受診した。",
+      "explanatoryModel": "「持続する抑うつ気分と興味喪失。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "72 回/分（整）",
+        "bp": "118/70 mmHg",
+        "resp": "14 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "甲状腺腫大なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "精神運動制止あり。"
+      }
+    }
+  },
+  {
+    "id": "case-060",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "42",
+      "gender": "女性",
+      "setting": "内科外来",
+      "chiefComplaint": "30. 不安・抑うつ"
+    },
+    "hiddenSettings": {
+      "aim": "精神症状の身体疾患原因を考え、動悸・体重・発汗を確認する。",
+      "actingGuideline": "落ち着かず、話題が次々変わる。",
+      "differentialDiagnosis": "第一診断: 甲状腺機能亢進症\n鑑別: 不安障害、うつ病、双極性障害、薬剤性"
+    },
+    "patientInfo": {
+      "hpi": "数か月前から不安感、焦燥、動悸、不眠、体重減少がある。",
+      "careBehavior": "症状が改善せず、内科外来を受診した。",
+      "explanatoryModel": "「精神症状に身体症状を伴う甲状腺中毒症。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.1 ℃",
+        "pulse": "116 回/分（整）",
+        "bp": "144/72 mmHg",
+        "resp": "18 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "甲状腺びまん性腫大。",
+        "chest": "頻脈。肺清。",
+        "abdomen": "腸蠕動亢進。",
+        "extremities": "浮腫なし。",
+        "other": "手指振戦、腱反射亢進。"
+      }
+    }
+  },
+  {
+    "id": "case-061",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 彩",
+      "age": "79",
+      "gender": "女性",
+      "setting": "もの忘れ外来",
+      "chiefComplaint": "31. 認知機能障害"
+    },
+    "hiddenSettings": {
+      "aim": "認知機能障害で発症経過、IADL、家族情報を確認する。",
+      "actingGuideline": "本人は年相応と言うが、娘が困っている。",
+      "differentialDiagnosis": "第一診断: Alzheimer型認知症\n鑑別: うつ病、正常圧水頭症、甲状腺機能低下症、慢性硬膜下血腫"
+    },
+    "patientInfo": {
+      "hpi": "2年前から同じ質問を繰り返し、最近は買い物や服薬管理ができなくなった。",
+      "careBehavior": "症状が改善せず、もの忘れ外来を受診した。",
+      "explanatoryModel": "「緩徐進行性の近時記憶障害と生活機能低下。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "76 回/分（整）",
+        "bp": "138/78 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "見当識障害、遅延再生低下。局在徴候なし。"
+      }
+    }
+  },
+  {
+    "id": "case-062",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 修",
+      "age": "76",
+      "gender": "男性",
+      "setting": "脳神経内科外来",
+      "chiefComplaint": "31. 認知機能障害"
+    },
+    "hiddenSettings": {
+      "aim": "認知機能障害で歩行と排尿症状を確認し、可逆的原因を考える。",
+      "actingGuideline": "足が床に張り付く感じで歩きにくいと話す。",
+      "differentialDiagnosis": "第一診断: 正常圧水頭症\n鑑別: Alzheimer型認知症、Parkinson病、慢性硬膜下血腫、うつ病"
+    },
+    "patientInfo": {
+      "hpi": "1年前から歩幅が小さくなり、尿失禁と物忘れが徐々に悪化した。",
+      "careBehavior": "症状が改善せず、脳神経内科外来を受診した。",
+      "explanatoryModel": "「歩行障害・認知機能低下・尿失禁の三徴。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "74 回/分（整）",
+        "bp": "142/82 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "磁性歩行。筋強剛は目立たない。"
+      }
+    }
+  },
+  {
+    "id": "case-063",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 由紀",
+      "age": "52",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "32. 頭痛"
+    },
+    "hiddenSettings": {
+      "aim": "頭痛で発症様式を最重視し、くも膜下出血を除外する。",
+      "actingGuideline": "頭を抱え、急にハンマーで殴られたようだと話す。",
+      "differentialDiagnosis": "第一診断: くも膜下出血\n鑑別: 片頭痛、髄膜炎、脳出血、緊張型頭痛"
+    },
+    "patientInfo": {
+      "hpi": "入浴中に突然、経験したことのない激しい頭痛が出現し、嘔吐した。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「雷鳴頭痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.9 ℃",
+        "pulse": "98 回/分（整）",
+        "bp": "184/100 mmHg",
+        "resp": "20 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "項部硬直あり。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "JCS 1。麻痺なし。"
+      }
+    }
+  },
+  {
+    "id": "case-064",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 真理",
+      "age": "28",
+      "gender": "女性",
+      "setting": "神経内科外来",
+      "chiefComplaint": "32. 頭痛"
+    },
+    "hiddenSettings": {
+      "aim": "一次性頭痛を診断しつつ、危険な二次性頭痛の徴候を確認する。",
+      "actingGuideline": "暗い部屋を好み、静かに話す。",
+      "differentialDiagnosis": "第一診断: 片頭痛\n鑑別: くも膜下出血、髄膜炎、緑内障、急性副鼻腔炎"
+    },
+    "patientInfo": {
+      "hpi": "月に2回、片側の拍動性頭痛が4〜12時間続き、光と音で悪化し嘔気を伴う。",
+      "careBehavior": "症状が改善せず、神経内科外来を受診した。",
+      "explanatoryModel": "「反復する片側拍動性頭痛と光過敏。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "78 回/分（整）",
+        "bp": "122/74 mmHg",
+        "resp": "16 回/分",
+        "spo2": "99 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "眼球結膜充血なし。項部硬直なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-065",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "74",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "33. 運動麻痺・筋力低下"
+    },
+    "hiddenSettings": {
+      "aim": "急性局在神経徴候で脳梗塞を疑い、最終健常時刻を確認する。",
+      "actingGuideline": "言葉が詰まり、右腕が下がる。",
+      "differentialDiagnosis": "第一診断: 脳梗塞\n鑑別: 脳出血、低血糖、てんかん後麻痺、頭蓋内血腫"
+    },
+    "patientInfo": {
+      "hpi": "30分前に突然、右手足が動かしにくくなり、言葉が出にくくなった。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「突然の片麻痺と失語。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "92 回/分（不整）",
+        "bp": "178/96 mmHg",
+        "resp": "18 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "右口角下垂。",
+        "chest": "心拍不整。肺清。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "右上下肢MMT 2、運動性失語。"
+      }
+    }
+  },
+  {
+    "id": "case-066",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 美咲",
+      "age": "39",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "33. 運動麻痺・筋力低下"
+    },
+    "hiddenSettings": {
+      "aim": "筋力低下で分布、進行、感覚、自律神経・呼吸症状を評価する。",
+      "actingGuideline": "歩行できず車椅子で来院し、息苦しさはないと話す。",
+      "differentialDiagnosis": "第一診断: Guillain-Barré症候群\n鑑別: 脊髄損傷、多発性筋炎、低カリウム血症、脳梗塞"
+    },
+    "patientInfo": {
+      "hpi": "1週間前の下痢後から両足のしびれと力が入りにくさが始まり、上方へ進行している。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「感染後の上行性対称性筋力低下。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.8 ℃",
+        "pulse": "96 回/分（整）",
+        "bp": "142/86 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "脳神経異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "下肢優位の対称性筋力低下、腱反射消失。"
+      }
+    }
+  },
+  {
+    "id": "case-067",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "鈴木 一郎",
+      "age": "68",
+      "gender": "男性",
+      "setting": "神経内科外来",
+      "chiefComplaint": "34. 歩行障害"
+    },
+    "hiddenSettings": {
+      "aim": "歩行障害で発症経過、転倒、振戦、薬歴を確認する。",
+      "actingGuideline": "小刻みに歩き、方向転換に時間がかかる。",
+      "differentialDiagnosis": "第一診断: Parkinson病\n鑑別: 正常圧水頭症、脳梗塞、脊柱管狭窄症、変形性関節症"
+    },
+    "patientInfo": {
+      "hpi": "2年前から歩幅が小さくなり、動作が遅く、右手の安静時振戦がある。",
+      "careBehavior": "症状が改善せず、神経内科外来を受診した。",
+      "explanatoryModel": "「無動、筋強剛、安静時振戦を伴う歩行障害。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.4 ℃",
+        "pulse": "70 回/分（整）",
+        "bp": "130/76 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "表情乏しい。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "浮腫なし。",
+        "other": "右優位歯車様筋強剛、安静時振戦、前傾姿勢。"
+      }
+    }
+  },
+  {
+    "id": "case-068",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "高橋 直子",
+      "age": "73",
+      "gender": "女性",
+      "setting": "整形外科外来",
+      "chiefComplaint": "34. 歩行障害"
+    },
+    "hiddenSettings": {
+      "aim": "歩行障害で距離、姿勢による増悪・軽快、膀胱直腸障害を確認する。",
+      "actingGuideline": "杖を使い、前かがみで歩く。",
+      "differentialDiagnosis": "第一診断: 腰部脊柱管狭窄症\n鑑別: 閉塞性動脈硬化症、Parkinson病、変形性関節症、椎間板ヘルニア"
+    },
+    "patientInfo": {
+      "hpi": "歩くと両下肢がしびれて痛み、前かがみで休むと改善する。",
+      "careBehavior": "症状が改善せず、整形外科外来を受診した。",
+      "explanatoryModel": "「神経性間欠跛行。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "78 回/分（整）",
+        "bp": "138/80 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "腰椎伸展で症状誘発。",
+        "extremities": "下肢浮腫なし。足背動脈触知良好。",
+        "other": "両下肢感覚低下軽度。"
+      }
+    }
+  },
+  {
+    "id": "case-069",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "伊藤 大輔",
+      "age": "61",
+      "gender": "男性",
+      "setting": "糖尿病内科外来",
+      "chiefComplaint": "35. 感覚障害"
+    },
+    "hiddenSettings": {
+      "aim": "感覚障害の分布と糖尿病歴を確認し、多発神経障害を評価する。",
+      "actingGuideline": "足裏の感覚が鈍く、傷に気づかないと話す。",
+      "differentialDiagnosis": "第一診断: 糖尿病性多発神経障害\n鑑別: 腰部脊柱管狭窄症、椎間板ヘルニア、その他の多発神経炎"
+    },
+    "patientInfo": {
+      "hpi": "数年前から両足先がしびれ、夜に灼けるように痛む。",
+      "careBehavior": "症状が改善せず、糖尿病内科外来を受診した。",
+      "explanatoryModel": "「左右対称の靴下型感覚障害。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.5 ℃",
+        "pulse": "80 回/分（整）",
+        "bp": "146/84 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "足背動脈触知。潰瘍なし。",
+        "other": "両足の振動覚・痛覚低下、腱反射低下。"
+      }
+    }
+  },
+  {
+    "id": "case-070",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "渡辺 修",
+      "age": "42",
+      "gender": "男性",
+      "setting": "整形外科外来",
+      "chiefComplaint": "35. 感覚障害"
+    },
+    "hiddenSettings": {
+      "aim": "感覚障害で皮節分布、筋力、膀胱直腸障害を確認する。",
+      "actingGuideline": "右脚をかばって座る。",
+      "differentialDiagnosis": "第一診断: 椎間板ヘルニア\n鑑別: 脊柱管狭窄症、多発神経炎、糖尿病性神経障害"
+    },
+    "patientInfo": {
+      "hpi": "重い物を持った後から腰痛と右足外側のしびれが出現し、咳で悪化する。",
+      "careBehavior": "症状が改善せず、整形外科外来を受診した。",
+      "explanatoryModel": "「腰痛に伴う神経根性放散痛と感覚障害。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.6 ℃",
+        "pulse": "82 回/分（整）",
+        "bp": "132/78 mmHg",
+        "resp": "16 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "腰椎前屈で疼痛。",
+        "extremities": "浮腫なし。",
+        "other": "右L5領域感覚低下、SLR陽性。"
+      }
+    }
+  },
+  {
+    "id": "case-071",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "中村 拓也",
+      "age": "70",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "36. 腰背部痛"
+    },
+    "hiddenSettings": {
+      "aim": "腰背部痛の致死的原因として大動脈解離を疑う。",
+      "actingGuideline": "苦悶表情で、裂けるような痛みと訴える。",
+      "differentialDiagnosis": "第一診断: 急性大動脈解離\n鑑別: 急性膵炎、尿管結石、急性腰痛症、脊椎圧迫骨折"
+    },
+    "patientInfo": {
+      "hpi": "突然、胸から背中に抜ける激痛が出現した。高血圧治療を中断している。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「突発する最大強度の胸背部痛。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.3 ℃",
+        "pulse": "108 回/分（整）",
+        "bp": "右204/110、左170/96 mmHg",
+        "resp": "24 回/分",
+        "spo2": "96 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "頸部血管雑音なし。",
+        "chest": "拡張期雑音軽度。肺清。",
+        "abdomen": "腹部拍動性腫瘤なし。",
+        "extremities": "左橈骨動脈拍動減弱。",
+        "other": "神経学的異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-072",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "小林 真理",
+      "age": "36",
+      "gender": "女性",
+      "setting": "救急外来",
+      "chiefComplaint": "36. 腰背部痛"
+    },
+    "hiddenSettings": {
+      "aim": "腰背部痛で尿路結石を疑い、放散、尿症状、発熱を確認する。",
+      "actingGuideline": "痛みでじっとしていられず歩き回る。",
+      "differentialDiagnosis": "第一診断: 尿管結石\n鑑別: 急性大動脈解離、急性膵炎、腎盂腎炎、椎間板ヘルニア"
+    },
+    "patientInfo": {
+      "hpi": "突然の左腰背部痛が下腹部へ放散し、嘔気と血尿がある。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「体動で落ち着かない疝痛と血尿。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "36.7 ℃",
+        "pulse": "104 回/分（整）",
+        "bp": "152/88 mmHg",
+        "resp": "20 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "左側腹部圧痛、腹膜刺激徴候なし。",
+        "extremities": "左CVA叩打痛。",
+        "other": "浮腫なし。"
+      }
+    }
+  },
+  {
+    "id": "case-073",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "山田 太郎",
+      "age": "67",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "37. 関節痛・関節腫脹"
+    },
+    "hiddenSettings": {
+      "aim": "急性単関節炎で化膿性関節炎を最優先に除外する。",
+      "actingGuideline": "膝を少しでも動かすと激痛で拒否する。",
+      "differentialDiagnosis": "第一診断: 化膿性関節炎\n鑑別: 痛風、偽痛風、外傷、反応性関節炎"
+    },
+    "patientInfo": {
+      "hpi": "昨日から右膝が急に腫れて激しく痛み、発熱して歩けない。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「単関節の急性炎症と全身発熱。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "38.8 ℃",
+        "pulse": "108 回/分（整）",
+        "bp": "118/70 mmHg",
+        "resp": "20 回/分",
+        "spo2": "97 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "異常なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "右膝著明腫脹、発赤、熱感、可動域制限。",
+        "other": "他関節異常なし。"
+      }
+    }
+  },
+  {
+    "id": "case-074",
+    "createdAt": "2026-07-30T11:35:00.000Z",
+    "initialInfo": {
+      "name": "佐藤 健",
+      "age": "52",
+      "gender": "男性",
+      "setting": "救急外来",
+      "chiefComplaint": "37. 関節痛・関節腫脹"
+    },
+    "hiddenSettings": {
+      "aim": "関節痛で発症速度、部位、飲酒・食事、既往を確認する。",
+      "actingGuideline": "足に布が触れるだけで痛いと訴える。",
+      "differentialDiagnosis": "第一診断: 痛風\n鑑別: 化膿性関節炎、偽痛風、外傷、反応性関節炎"
+    },
+    "patientInfo": {
+      "hpi": "昨夜の飲酒後、明け方から右母趾MTP関節が突然激しく痛み、赤く腫れた。",
+      "careBehavior": "症状が改善せず、救急外来を受診した。",
+      "explanatoryModel": "「典型的な急性単関節炎（podagra）。のではないかと心配しています。」",
+      "pmh": "症例ごとの診断に関連する既往歴は現病歴に記載。その他に特記すべき既往なし。",
+      "familyHistory": "家族歴に特記すべき事項なし。",
+      "background": "職業・生活歴は一般的。喫煙・飲酒・服薬・妊娠可能性など、診断上重要な事項は問診で追加確認する。"
+    },
+    "physicalExam": {
+      "vitals": {
+        "consciousness": "清明 (JCS 0 / GCS 15)",
+        "temp": "37.4 ℃",
+        "pulse": "92 回/分（整）",
+        "bp": "148/86 mmHg",
+        "resp": "18 回/分",
+        "spo2": "98 % (Room Air)"
+      },
+      "findings": {
+        "headNeck": "耳介結節なし。",
+        "chest": "心肺異常なし。",
+        "abdomen": "平坦・軟。",
+        "extremities": "右第1MTP関節に発赤・腫脹・圧痛。",
+        "other": "他関節異常なし。"
+      }
+    }
+  }
 ]
