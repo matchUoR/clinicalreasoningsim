@@ -49,6 +49,92 @@
     <script type="text/babel">
         const { useState, useEffect, useMemo, useRef } = React;
 
+        // デフォルトの初期症例（cases.jsonがロードできない環境・プレビュー用フォールバック）
+        const DEFAULT_CASES = [
+            {
+                "id": "case-001",
+                "createdAt": "2026-07-30T10:00:00.000Z",
+                "initialInfo": {
+                    "name": "山田 太郎",
+                    "age": "62",
+                    "gender": "男性",
+                    "setting": "救急外来（ER）夜間帯。徒歩にて来院。",
+                    "chiefComplaint": "16. 胸痛"
+                },
+                "hiddenSettings": {
+                    "aim": "急性冠症候群（ACS）を念頭においた系統的問診と、心電図・バイタル所見の迅速な評価、および危険因子の聴取能力の検証。",
+                    "actingGuideline": "胸の中央部を握りこぶしでさすりながら、少し苦しそうに話す。『さっきから冷や汗が止まらなくて…』と不安そうにする。放散痛（左肩・下顎）を聞かれたら『そう言われてみれば左の肩も重だるい』と答える。",
+                    "differentialDiagnosis": "第一生: 急性心筋梗塞 (AMI) / 虚血性心疾患\n鑑別: 解離性大動脈瘤、肺血栓栓塞症、気胸、逆流性食道炎"
+                },
+                "patientInfo": {
+                    "hpi": "本日19時頃、夕食後に自宅でテレビを見ていたところ、突然胸の中央部が絞り込まれるような強い痛みに襲われた。痛みは30分以上持続しており、治まる気配がない。冷や汗を伴い、左肩にも重だるい痛みが広がっている。",
+                    "careBehavior": "これまで同様の痛みを経験したことがなく、怖くなり妻の運転する車で救急外来を受診した。",
+                    "explanatoryModel": "「心臓の病気（心筋梗塞など）ではないかと非常に心配です。身内に心筋梗塞で亡くなった人がいるので…」",
+                    "pmh": "高血圧症（5年前から内服治療中）、高脂血症（放置）",
+                    "familyHistory": "父：58歳時に心筋梗塞で他界。母：80歳 健在（糖尿病）。",
+                    "background": "会社員（デスクワーク）。喫煙：1日20本×40年。飲酒：ビール350ml×毎日。同居家族：妻。"
+                },
+                "physicalExam": {
+                    "vitals": {
+                        "consciousness": "清明 (JCS 0 / GCS 15)",
+                        "temp": "36.6 ℃",
+                        "pulse": "98 回/分（整）",
+                        "bp": "154/92 mmHg",
+                        "resp": "22 回/分",
+                        "spo2": "95 % (Room Air)"
+                    },
+                    "findings": {
+                        "headNeck": "頸部血管怒張なし。結膜に黄疸・貧血なし。",
+                        "chest": "心音：整。Ⅲ音・Ⅳ音なし。雑音なし。両肺野：Clear。ラ音聴取せず。",
+                        "abdomen": "平坦・軟。圧痛なし。筋性防御なし。",
+                        "extremities": "冷感あり。浮腫なし。チアノーゼ微増。",
+                        "other": "冷や汗（発汗）顕著。"
+                    }
+                }
+            },
+            {
+                "id": "case-002",
+                "createdAt": "2026-07-30T10:00:00.000Z",
+                "initialInfo": {
+                    "name": "佐藤 花子",
+                    "age": "24",
+                    "gender": "女性",
+                    "setting": "診療所（クリニック）の日中診察室。",
+                    "chiefComplaint": "20. 腹痛"
+                },
+                "hiddenSettings": {
+                    "aim": "急性腹症（特に急性虫垂炎）における痛みの移動（臍周囲→右下腹部）の確認、身体所見（腹部圧痛・反跳痛）の診断精度の評価。",
+                    "actingGuideline": "右下腹部を押さえるようにしてお腹を丸めて座っている。歩くと響く様子を見せる。『昨日のお腹の痛みとは場所が変わってきた』と正確に語る。",
+                    "differentialDiagnosis": "第一生: 急性虫垂炎\n鑑別: 異位妊娠（宮外妊娠）、急性腸炎、卵巣出血・卵巣腫瘍茎捻転、尿路結石"
+                },
+                "patientInfo": {
+                    "hpi": "昨日の夕方頃からなんとなくみぞおちからお腹全体にかけて鈍い痛みと気持ち悪さを感じていた。今朝起きてから痛みが右下腹部に移動し、差し込むような痛みに変わった。歩いたり響いたりすると痛みが強くなる。食欲はない。",
+                    "careBehavior": "市販の胃薬を飲んだが効かず、痛みが強くなったため近所のクリニックを受診。",
+                    "explanatoryModel": "「盲腸（虫垂炎）でしょうか？ 手術が必要になるのか不安です。」",
+                    "pmh": "特記事項なし。アレルギーなし。",
+                    "familyHistory": "特記事項なし。",
+                    "background": "大学生。一人暮らし。最終月経は2週間前（規則的）。喫煙なし、機会飲酒。"
+                },
+                "physicalExam": {
+                    "vitals": {
+                        "consciousness": "清明",
+                        "temp": "37.8 ℃",
+                        "pulse": "84 回/分",
+                        "bp": "112/68 mmHg",
+                        "resp": "16 回/分",
+                        "spo2": "99 % (Room Air)"
+                    },
+                    "findings": {
+                        "headNeck": "特記事項なし。咽頭発赤なし。",
+                        "chest": "心音清。雑音なし。呼吸音清。",
+                        "abdomen": "右下腹部（McBurney点）に明らかな圧痛および反跳痛（Rebound tenderness）を認める。筋性防御（+）。腸雑音は減弱。",
+                        "extremities": "特記事項なし。",
+                        "other": "Psoasサイン（陽性）、Rovsingサイン（陽性）。"
+                    }
+                }
+            }
+        ];
+
         // 37の症候・病態（最新リスト）
         const SYMPTOMS_37 = [
             "1. 発熱",
@@ -88,92 +174,6 @@
             "35. 腰背部痛",
             "36. 関節痛・関節腫脹",
             "37. 外傷・熱傷"
-        ];
-
-        // 既定のサンプル症例
-        const DEFAULT_CASES = [
-            {
-                id: "case-001",
-                createdAt: new Date().toISOString(),
-                initialInfo: {
-                    name: "山田 太郎",
-                    age: "62",
-                    gender: "男性",
-                    setting: "救急外来（ER）夜間帯。徒歩にて来院。",
-                    chiefComplaint: "16. 胸痛"
-                },
-                hiddenSettings: {
-                    aim: "急性冠症候群（ACS）を念頭においた系統的問診と、心電図・バイタル所見の迅速な評価、および危険因子の聴取能力の検証。",
-                    actingGuideline: "胸の中央部を握りこぶしでさすりながら、少し苦しそうに話す。『さっきから冷や汗が止まらなくて…』と不安そうにする。放散痛（左肩・下顎）を聞かれたら『そう言われてみれば左の肩も重だるい』と答える。",
-                    differentialDiagnosis: "第一生: 急性心筋梗塞 (AMI) / 虚血性心疾患\n鑑別: 解離性大動脈瘤、肺血栓栓塞症、気胸、逆流性食道炎"
-                },
-                patientInfo: {
-                    hpi: "本日19時頃、夕食後に自宅でテレビを見ていたところ、突然胸の中央部が絞り込まれるような強い痛みに襲われた。痛みは30分以上持続しており、治まる気配がない。冷や汗を伴い、左肩にも重だるい痛みが広がっている。",
-                    careBehavior: "これまで同様の痛みを経験したことがなく、怖くなり妻の運転する車で救急外来を受診した。",
-                    explanatoryModel: "「心臓の病気（心筋梗塞など）ではないかと非常に心配です。身内に心筋梗塞で亡くなった人がいるので…」",
-                    pmh: "高血圧症（5年前から内服治療中）、高脂血症（放置）",
-                    familyHistory: "父：58歳時に心筋梗塞で他界。母：80歳 健在（糖尿病）。",
-                    background: "会社員（デスクワーク）。喫煙：1日20本×40年。飲酒：ビール350ml×毎日。同居家族：妻。"
-                },
-                physicalExam: {
-                    vitals: {
-                        consciousness: "清明 (JCS 0 / GCS 15)",
-                        temp: "36.6 ℃",
-                        pulse: "98 回/分（整）",
-                        bp: "154/92 mmHg",
-                        resp: "22 回/分",
-                        spo2: "95 % (Room Air)"
-                    },
-                    findings: {
-                        headNeck: "頸部血管怒張なし。結膜に黄疸・貧血なし。",
-                        chest: "心音：整。Ⅲ音・Ⅳ音なし。雑音なし。両肺野：Clear。ラ音聴取せず。",
-                        abdomen: "平坦・軟。圧痛なし。筋性防御なし。",
-                        extremities: "冷感あり。浮腫なし。チアノーゼ微増。",
-                        other: "冷や汗（発汗）顕著。"
-                    }
-                }
-            },
-            {
-                id: "case-002",
-                createdAt: new Date().toISOString(),
-                initialInfo: {
-                    name: "佐藤 花子",
-                    age: "24",
-                    gender: "女性",
-                    setting: "診療所（クリニック）の日中診察室。",
-                    chiefComplaint: "20. 腹痛"
-                },
-                hiddenSettings: {
-                    aim: "急性腹症（特に急性虫垂炎）における痛みの移動（臍周囲→右下腹部）の確認、身体所見（腹部圧痛・反跳痛）の診断精度の評価。",
-                    actingGuideline: "右下腹部を押さえるようにしてお腹を丸めて座っている。歩くと響く様子を見せる。『昨日のお腹の痛みとは場所が変わってきた』と正確に語る。",
-                    differentialDiagnosis: "第一生: 急性虫垂炎\n鑑別: 異位妊娠（宮外妊娠）、急性腸炎、卵巣出血・卵巣腫瘍茎捻転、尿路結石"
-                },
-                patientInfo: {
-                    hpi: "昨日の夕方頃からなんとなくみぞおちからお腹全体にかけて鈍い痛みと気持ち悪さを感じていた。今朝起きてから痛みが右下腹部に移動し、差し込むような痛みに変わった。歩いたり響いたりすると痛みが強くなる。食欲はない。",
-                    careBehavior: "市販の胃薬を飲んだが効かず、痛みが強くなったため近所のクリニックを受診。",
-                    explanatoryModel: "「盲腸（虫垂炎）でしょうか？ 手術が必要になるのか不安です。」",
-                    pmh: "特記事項なし。アレルギーなし。",
-                    familyHistory: "特記事項なし。",
-                    background: "大学生。一人暮らし。最終月経は2週間前（規則的）。喫煙なし、機会飲酒。"
-                },
-                physicalExam: {
-                    vitals: {
-                        consciousness: "清明",
-                        temp: "37.8 ℃",
-                        pulse: "84 回/分",
-                        bp: "112/68 mmHg",
-                        resp: "16 回/分",
-                        spo2: "99 % (Room Air)"
-                    },
-                    findings: {
-                        headNeck: "特記事項なし。咽頭発赤なし。",
-                        chest: "心音清。雑音なし。呼吸音清。",
-                        abdomen: "右下腹部（McBurney点）に明らかな圧痛および反跳痛（Rebound tenderness）を認める。筋性防御（+）。腸雑音は減弱。",
-                        extremities: "特記事項なし。",
-                        other: "Psoasサイン（陽性）、Rovsingサイン（陽性）。"
-                    }
-                }
-            }
         ];
 
         // トースト通知
@@ -1202,19 +1202,61 @@
         }
 
         function App() {
-            const [cases, setCases] = useState(() => {
-                const saved = localStorage.getItem("clinical_sp_cases");
-                return saved ? JSON.parse(saved) : DEFAULT_CASES;
-            });
-
+            const [cases, setCases] = useState([]);
+            const [isLoading, setIsLoading] = useState(true);
             const [activeTab, setActiveTab] = useState("home"); // home, solo, pair, cases, edit
             const [selectedCase, setSelectedCase] = useState(null);
             const [editingCase, setEditingCase] = useState(null);
             const [toast, setToast] = useState(null);
 
+            // cases.json からの安全な非同期読み込み（エラー時は DEFAULT_CASES にフォールバック）
             useEffect(() => {
-                localStorage.setItem("clinical_sp_cases", JSON.stringify(cases));
-            }, [cases]);
+                const loadCases = async () => {
+                    const saved = localStorage.getItem("clinical_sp_cases");
+                    if (saved) {
+                        try {
+                            const parsed = JSON.parse(saved);
+                            if (Array.isArray(parsed) && parsed.length > 0) {
+                                setCases(parsed);
+                                setIsLoading(false);
+                                return;
+                            }
+                        } catch (e) {
+                            console.error("Failed to parse localStorage cases", e);
+                        }
+                    }
+
+                    // blob: URLやプレビュー環境でなければ cases.json からの読み込みを試行
+                    const isBlobUrl = window.location.href.startsWith("blob:");
+                    if (!isBlobUrl) {
+                        try {
+                            const response = await fetch("cases.json");
+                            if (response.ok) {
+                                const data = await response.json();
+                                if (Array.isArray(data) && data.length > 0) {
+                                    setCases(data);
+                                    setIsLoading(false);
+                                    return;
+                                }
+                            }
+                        } catch (err) {
+                            console.warn("cases.json fetch failed, using default embedded cases:", err);
+                        }
+                    }
+
+                    // 取得失敗または blob URL 環境時はデフォルト症例を使用
+                    setCases(DEFAULT_CASES);
+                    setIsLoading(false);
+                };
+
+                loadCases();
+            }, []);
+
+            useEffect(() => {
+                if (!isLoading && cases.length > 0) {
+                    localStorage.getItem("clinical_sp_cases");
+                }
+            }, [cases, isLoading]);
 
             const showToast = (message, type = "success") => {
                 setToast({ message, type });
@@ -1231,18 +1273,30 @@
             };
 
             const handleSaveCase = (savedCase) => {
-                setCases(prev => {
-                    const idx = prev.findIndex(c => c.id === savedCase.id);
+                const updatedCases = (() => {
+                    const idx = cases.findIndex(c => c.id === savedCase.id);
                     if (idx >= 0) {
-                        const copy = [...prev];
+                        const copy = [...cases];
                         copy[idx] = savedCase;
                         return copy;
                     }
-                    return [savedCase, ...prev];
-                });
+                    return [savedCase, ...cases];
+                })();
+
+                setCases(updatedCases);
+                localStorage.setItem("clinical_sp_cases", JSON.stringify(updatedCases));
                 setActiveTab("cases");
-                showToast("症例を正常に保存しました。");
+                showToast("症例を正常に保存しました。（ブラウザに保管）");
             };
+
+            if (isLoading) {
+                return (
+                    <div class="min-h-screen bg-slate-900 flex flex-col items-center justify-center text-white p-4">
+                        <i class="fa-solid fa-spinner fa-spin text-4xl text-teal-400 mb-4"></i>
+                        <p class="text-sm font-bold tracking-wider">症例データベース (cases.json) を読み込み中...</p>
+                    </div>
+                );
+            }
 
             return (
                 <div class="min-h-screen flex flex-col bg-slate-50">
@@ -1275,7 +1329,10 @@
                         {activeTab === "cases" && (
                             <CaseManagerScreen 
                                 cases={cases} 
-                                setCases={setCases}
+                                setCases={(newCases) => {
+                                    setCases(newCases);
+                                    localStorage.setItem("clinical_sp_cases", JSON.stringify(newCases));
+                                }}
                                 onEditCase={(c) => { setEditingCase(c); setActiveTab("edit"); }}
                                 onCreateCase={() => { setEditingCase(null); setActiveTab("edit"); }}
                             />
