@@ -52,6 +52,11 @@
         .animate-fade-in {
             animation: fadeIn 0.25s ease-out forwards;
         }
+        /* オーディオプレイヤーの再生速度変更ボタンおよびダウンロードボタンを非表示 */
+        audio::-webkit-media-controls-playback-rate-button,
+        audio::-webkit-media-controls-timeline-container-playback-rate-button {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-900 flex flex-col overflow-y-auto custom-scrollbar">
@@ -59,6 +64,10 @@
 
     <script type="text/babel">
         const { useState, useEffect, useMemo, useRef } = React;
+
+        // デフォルトの胸部聴診音源 (心音・呼吸音)
+        const DEFAULT_HEART_SOUND_URL = "https://upload.wikimedia.org/wikipedia/commons/4/4b/Normal_heart_sounds_recorded_with_a_stethoscope.ogg";
+        const DEFAULT_BREATH_SOUND_URL = "https://upload.wikimedia.org/wikipedia/commons/8/81/Normal_vesicular_breath_sounds.ogg";
 
         // 主訴ごとの問診・身体診察・検討すべき鑑別疾患ガイドラインデータ
         const CLINICAL_GUIDELINES = [
@@ -85,9 +94,9 @@
             { "主訴": "腹痛", "問診ポイント": ["痛みの部位", "痛みの経過", "発熱", "悪心・嘔吐", "食事との関係", "尿の性状", "月経", "性器出血", "既往歴（健診を含む）", "嗜好", "生活習慣"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "眼瞼結膜・眼球結膜", "心音・心雑音", "腹部の診察"], "検討すべき鑑別疾患": ["消化性潰瘍", "機能性ディスペプシア（FD）", "急性胃腸炎", "急性虫垂炎", "憩室炎", "虚血性大腸炎", "腸間膜動脈塞栓症", "便秘症", "過敏性腸症候群", "腸閉塞", "腸重積症", "汎発性腹膜炎", "鼠径ヘルニア", "胆嚢炎", "胆石症", "急性膵炎", "急性冠症候群", "急性大動脈解離", "子宮内膜症", "異所性妊娠", "流・早産", "卵巣嚢腫（捻転）", "卵巣癌（捻転）", "尿路結石", "糖尿病性ケトアシドーシス"] },
             { "主訴": "悪心・嘔吐", "問診ポイント": ["症状の経過", "腹痛", "便の性状", "頭痛", "体重の変化", "発汗", "多尿", "めまい", "抑うつ", "生活習慣", "月経", "性器出血", "既往歴"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "心音・心雑音", "背部の叩打痛", "髄膜刺激症候", "腹部の診察", "神経系の診察", "不機嫌（小児）"], "検討すべき鑑別疾患": ["脳出血", "くも膜下出血", "頭蓋内血腫", "髄膜炎", "片頭痛", "急性胃腸炎", "急性虫垂炎", "腸閉塞", "食中毒", "急性心筋梗塞", "妊娠", "糖尿病性ケトアシドーシス", "カルシウム代謝異常"] },
             { "主訴": "吐血・下血", "問診ポイント": ["症状の経過", "腹痛", "便の性状", "腹部膨隆・膨満", "発熱", "体重の変化", "不機嫌（小児）", "常用薬", "既往歴（健診を含む）", "嗜好"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "リンパ節", "眼瞼・眼球", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["食道静脈瘤", "Mallory-Weiss症候群", "胃癌", "消化性潰瘍", "炎症性腸疾患", "虚血性大腸炎", "憩室出血", "大腸癌", "痔核", "裂肛"] },
+            { "主訴": "便秘・下痢", "問診ポイント": ["症状の経過", "便の性状", "腹痛", "嘔気・嘔吐", "食思（欲）", "発熱", "体重の変化", "動悸", "海外渡航歴", "既往歴（健診を含む）", "家族歴", "嗜好", "生活習慣"], "身体診察ポイント": ["バイタルサイン", "皮膚", "甲状腺", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["Parkinson病", "甲状腺機能低下症", "甲状腺機能亢進症", "便秘症", "過敏性腸症候群", "腸閉塞", "大腸癌", "急性胃腸炎", "炎症性腸疾患", "薬剤性"] },
             { "主訴": "吐血", "問診ポイント": ["症状の経過", "嚥下困難・障害", "心窩部痛", "便の性状", "常用薬", "既往歴（健診を含む）", "嗜好"], "身体診察ポイント": ["バイタルサイン", "眼瞼・眼球", "リンパ節", "腹部の診察"], "検討すべき鑑別疾患": ["食道静脈瘤", "Mallory-Weiss症候群", "胃癌", "消化性潰瘍"] },
             { "主訴": "下血", "問診ポイント": ["症状の経過", "腹痛", "便の性状", "腹部膨隆・膨満", "発熱", "体重の変化", "不機嫌（小児）", "常用薬", "既往歴（健診を含む）", "嗜好"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "リンパ節", "眼瞼・眼球", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["消化性潰瘍", "炎症性腸疾患", "虚血性大腸炎", "憩室出血", "大腸癌", "痔核", "裂肛"] },
-            { "主訴": "便秘・下痢", "問診ポイント": ["症状の経過", "便の性状", "腹痛", "嘔気・嘔吐", "食思（欲）", "発熱", "体重の変化", "動悸", "海外渡航歴", "既往歴（健診を含む）", "家族歴", "嗜好", "生活習慣"], "身体診察ポイント": ["バイタルサイン", "皮膚", "甲状腺", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["Parkinson病", "甲状腺機能低下症", "甲状腺機能亢進症", "便秘症", "過敏性腸症候群", "腸閉塞", "大腸癌", "急性胃腸炎", "炎症性腸疾患", "薬剤性"] },
             { "主訴": "便秘", "問診ポイント": ["症状の経過", "体重の変化", "食思（欲）", "悪心・嘔吐", "腹痛", "手術歴"], "身体診察ポイント": ["バイタルサイン", "眼瞼・眼球", "体毛", "腹部の診察", "腸雑音", "下腿浮腫", "神経系の診察", "甲状腺腫"], "検討すべき鑑別疾患": ["Parkinson病", "甲状腺機能低下症", "便秘症", "過敏性腸症候群", "腸閉塞", "大腸癌", "薬剤性"] },
             { "主訴": "下痢", "問診ポイント": ["症状の経過", "便の性状", "腹痛", "嘔気・嘔吐", "食思（欲）", "発熱", "体重の変化", "動悸", "海外渡航歴", "既往歴（健診を含む）", "家族歴", "嗜好", "生活習慣"], "身体診察ポイント": ["バイタルサイン", "皮膚", "甲状腺", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["甲状腺機能亢進症", "急性胃腸炎", "炎症性腸疾患", "過敏性腸症候群", "薬剤性"] },
             { "主訴": "黄疸", "問診ポイント": ["発熱", "体重の変化", "腹痛", "食思（欲）", "そう痒", "下腿浮腫", "尿の性状", "既往歴（健診を含む）", "海外渡航歴", "家族歴", "嗜好", "常用薬"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "皮膚", "眼瞼・眼球", "乳房", "腹部の診察", "下腿浮腫"], "検討すべき鑑別疾患": ["急性肝炎", "慢性肝炎", "肝硬変", "肝癌", "胆管炎", "胆管癌", "膵癌", "溶血性貧血", "薬剤性", "生理的黄疸"] },
@@ -104,8 +113,8 @@
             { "主訴": "腰背部痛", "問診ポイント": ["発症様式", "症状の経過", "悪心・嘔吐", "発熱", "足のしびれ", "痛みの移動", "食事との関係", "尿の性状", "体重の変化", "既往歴（健診を含む）", "家族歴", "生活習慣"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "腹部の診察", "神経系の診察", "叩打痛", "脊椎の診察"], "検討すべき鑑別疾患": ["急性大動脈解離", "急性膵炎", "膵癌", "尿管結石", "椎間板ヘルニア", "変形性脊椎症", "脊柱管狭窄症", "脊椎椎体骨折", "急性腰痛症", "化膿性脊椎炎"] },
             { "主訴": "関節痛・関節腫脹", "問診ポイント": ["症状の部位", "発症様式", "症状の経過", "発熱", "光線過敏", "随伴症状", "不機嫌（小児）", "家族歴"], "身体診察ポイント": ["発熱", "皮膚", "Raynaud現象", "口腔・咽頭", "関節", "熱感・圧痛", "関節可動域"], "検討すべき鑑別疾患": ["化膿性関節炎", "変形性関節症", "関節リウマチ", "全身性エリテマトーデス（SLE）", "反応性関節炎", "痛風", "偽痛風", "外傷"] },
             { "主訴": "外傷・熱傷", "問診ポイント": ["受傷機転", "意識障害", "頭痛", "歩行障害"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "神経系の診察", "フレイルチェスト", "腹部の診察", "受傷部位の観察"], "検討すべき鑑別疾患": ["外傷性ショック", "骨折", "頭部外傷", "熱傷性ショック"] },
-            { "主訴": "歩行障害", "問診ポイント": ["発症様式", "進行度", "転倒歴", "しびれ・痛みの有無"], "身体診察ポイント": ["歩行様式", "小脳機能検査", "深部腱反射", "筋力テスト"], "検討すべき鑑別疾患": ["脳出血", "頭蓋内血腫", "脳梗塞", "Parkinson病", "変形性脊椎症", "脊柱管狭窄症", "椎間板ヘルニア", "変形性関節症", "骨折"] },
-            { "主訴": "感覚障害", "問診ポイント": ["部位", "発症様式", "左右差", "麻痺の有無"], "身体診察ポイント": ["痛覚・触覚検査", "位置覚・振動覚", "神経根症状"], "検討すべき鑑別疾患": ["脊柱管狭窄症", "椎間板ヘルニア", "多発神経炎", "糖尿病"] }
+            { "主訴": "歩行障害", "問診ポイント": [], "身体診察ポイント": [], "検討すべき鑑別疾患": ["脳出血", "頭蓋内血腫", "脳梗塞", "Parkinson病", "変形性脊椎症", "脊柱管狭窄症", "椎間板ヘルニア", "変形性関節症", "骨折"] },
+            { "主訴": "感覚障害", "問診ポイント": [], "身体診察ポイント": [], "検討すべき鑑別疾患": ["脊柱管狭窄症", "椎間板ヘルニア", "多発神経炎", "糖尿病"] }
         ];
 
         // 37の症候・病態（表示選択用）
@@ -134,6 +143,86 @@
             ) || null;
         }
 
+        // 主訴別の問診ポイントの所見を取得するヘルパー（カスタム所見を最優先）
+        function getInterviewFinding(item, patientInfo, customFindings) {
+            if (customFindings && customFindings[item] !== undefined && customFindings[item] !== "") {
+                return customFindings[item];
+            }
+            if (!patientInfo) return "所見なし";
+            const cleanItem = item.replace(/（.*?）/g, "").trim();
+
+            if (cleanItem.includes("既往") && patientInfo.pmh) return patientInfo.pmh;
+            if (cleanItem.includes("家族") && patientInfo.familyHistory) return patientInfo.familyHistory;
+            if ((cleanItem.includes("生活") || cleanItem.includes("嗜好") || cleanItem.includes("環境") || cleanItem.includes("職業")) && patientInfo.background) return patientInfo.background;
+            if (cleanItem.includes("解釈") && patientInfo.explanatoryModel) return patientInfo.explanatoryModel;
+            if (cleanItem.includes("受療") && patientInfo.careBehavior) return patientInfo.careBehavior;
+
+            const allText = [
+                patientInfo.hpi || "",
+                patientInfo.pmh || "",
+                patientInfo.background || "",
+                patientInfo.careBehavior || "",
+                patientInfo.explanatoryModel || ""
+            ].join("\n");
+
+            const sentences = allText.split(/[。\n]/).filter(Boolean);
+            const matched = sentences.filter(s => s.includes(cleanItem) || (cleanItem.length >= 2 && s.includes(cleanItem.slice(0, 2))));
+
+            if (matched.length > 0) {
+                return matched.join("。") + "。";
+            }
+
+            return "所見なし";
+        }
+
+        // 主訴別の身体診察ポイントの所見を取得するヘルパー（カスタム所見を最優先）
+        function getExamFinding(item, physicalExam, customFindings) {
+            if (customFindings && customFindings[item] !== undefined && customFindings[item] !== "") {
+                return customFindings[item];
+            }
+            if (!physicalExam) return "所見なし";
+            const findings = physicalExam.findings || {};
+            const vitals = physicalExam.vitals || {};
+            const cleanItem = item.replace(/（.*?）/g, "").trim();
+
+            if (cleanItem.includes("バイタル")) {
+                return `意識: ${vitals.consciousness || '正常'}, 体温: ${vitals.temp || '正常'}, 脈拍: ${vitals.pulse || '正常'}, 血圧(左): ${vitals.bpLeft || vitals.bp || '正常'}, 呼吸数: ${vitals.resp || '正常'}, SpO2: ${vitals.spo2 || '正常'}`;
+            }
+            if (cleanItem.includes("意識")) {
+                return vitals.consciousness ? `意識状態: ${vitals.consciousness}` : "所見なし";
+            }
+            if (cleanItem.includes("血圧左右差")) {
+                return `血圧(左): ${vitals.bpLeft || '未測定'}, 血圧(右): ${vitals.bpRight || '未測定'}`;
+            }
+
+            const allFindings = [
+                { text: findings.headNeck || "" },
+                { text: findings.chest || "" },
+                { text: findings.abdomen || "" },
+                { text: findings.extremities || "" },
+                { text: findings.other || "" }
+            ];
+
+            let results = [];
+            for (const f of allFindings) {
+                if (f.text && (f.text.includes(cleanItem) || (cleanItem.length >= 2 && f.text.includes(cleanItem.slice(0, 2))))) {
+                    const sentences = f.text.split(/[。\n]/).filter(Boolean);
+                    const matchedSentences = sentences.filter(s => s.includes(cleanItem) || (cleanItem.length >= 2 && s.includes(cleanItem.slice(0, 2))));
+                    if (matchedSentences.length > 0) {
+                        results.push(matchedSentences.join("。") + "。");
+                    } else {
+                        results.push(f.text);
+                    }
+                }
+            }
+
+            if (results.length > 0) {
+                return Array.from(new Set(results)).join("\n");
+            }
+
+            return "所見なし";
+        }
+
         const DEFAULT_CASES = [
             {
                 "id": "case-001",
@@ -158,12 +247,19 @@
                     "familyHistory": "父：58歳時に心筋梗塞で他界。母：80歳 健在（糖尿病）。",
                     "background": "会社員（デスクワーク）。喫煙：1日20本×40年。飲酒：ビール350ml×毎日。同居家族：妻。"
                 },
+                "guidelineFindings": {
+                    "部位": "胸部中央（前胸部）。左肩へ放散痛あり。",
+                    "痛みの質": "絞り込まれるような重苦しい痛み（圧迫感・絞扼感）。",
+                    "持続時間": "30分以上持続しており継続中。",
+                    "随伴症状": "冷や汗（発汗）が著しい。吐き気は軽度。"
+                },
                 "physicalExam": {
                     "vitals": {
                         "consciousness": "清明 (JCS 0 / GCS 15)",
                         "temp": "36.6 ℃",
                         "pulse": "98 回/分（整）",
-                        "bp": "154/92 mmHg",
+                        "bpLeft": "154/92 mmHg",
+                        "bpRight": "150/90 mmHg",
                         "resp": "22 回/分",
                         "spo2": "95 % (Room Air)"
                     },
@@ -173,6 +269,10 @@
                         "abdomen": "平坦・軟。圧痛なし。筋性防御なし。",
                         "extremities": "冷感あり。浮腫なし。チアノーゼ微増。",
                         "other": "冷や汗（発汗）顕著。"
+                    },
+                    "audio": {
+                        "heartSoundUrl": "",
+                        "breathSoundUrl": ""
                     }
                 }
             },
@@ -199,12 +299,17 @@
                     "familyHistory": "特記事項なし。",
                     "background": "大学生。一人暮らし。最終月経は2週間前（規則的）。喫煙なし、機会飲酒。"
                 },
+                "guidelineFindings": {
+                    "痛みの部位": "右下腹部（昨日はみぞおち・臍周囲だったが移動した）。",
+                    "痛みの経過": "昨日夕方から悪化し、痛みの場所が移動した。"
+                },
                 "physicalExam": {
                     "vitals": {
                         "consciousness": "清明",
                         "temp": "37.8 ℃",
                         "pulse": "84 回/分",
-                        "bp": "112/68 mmHg",
+                        "bpLeft": "112/68 mmHg",
+                        "bpRight": "110/66 mmHg",
                         "resp": "16 回/分",
                         "spo2": "99 % (Room Air)"
                     },
@@ -214,6 +319,10 @@
                         "abdomen": "右下腹部（McBurney点）に明らかな圧痛および反跳痛（Rebound tenderness）を認める。筋性防御（+）。腸雑音は減弱。",
                         "extremities": "特記事項なし。",
                         "other": "Psoasサイン（陽性）、Rovsingサイン（陽性）。"
+                    },
+                    "audio": {
+                        "heartSoundUrl": "",
+                        "breathSoundUrl": ""
                     }
                 }
             }
@@ -455,6 +564,7 @@
 
         function SoloModeScreen({ currentCase, onBack }) {
             const [revealed, setRevealed] = useState(new Set());
+            const [showRightBp, setShowRightBp] = useState(false);
             const [userDiagnoses, setUserDiagnoses] = useState("");
             const [isFinished, setIsFinished] = useState(false);
             const [activeTab, setActiveTab] = useState("interview");
@@ -494,8 +604,19 @@
                     'hpi', 'careBehavior', 'explanatoryModel', 'pmh', 'familyHistory', 'background',
                     'vitals', 'headNeck', 'chest', 'abdomen', 'extremities', 'other'
                 ];
+                if (guideline) {
+                    guideline.問診ポイント?.forEach((_, idx) => allKeys.push(`g_interview_${idx}`));
+                    guideline.身体診察ポイント?.forEach((_, idx) => allKeys.push(`g_exam_${idx}`));
+                }
                 setRevealed(new Set(allKeys));
+                setShowRightBp(true);
             };
+
+            const bpLeftVal = currentCase.physicalExam.vitals.bpLeft || currentCase.physicalExam.vitals.bp || "正常";
+            const bpRightVal = currentCase.physicalExam.vitals.bpRight || bpLeftVal;
+
+            const heartAudio = currentCase.physicalExam?.audio?.heartSoundUrl || DEFAULT_HEART_SOUND_URL;
+            const breathAudio = currentCase.physicalExam?.audio?.breathSoundUrl || DEFAULT_BREATH_SOUND_URL;
 
             return (
                 <div class="max-w-6xl mx-auto w-full px-4 py-6 flex flex-col gap-4 animate-fade-in min-h-[calc(100vh-4rem)]">
@@ -526,7 +647,7 @@
 
                             {!isFinished && (
                                 <button 
-                                    onClick={() => setIsFinished(true)}
+                                    onClick={() => { setIsFinished(true); setShowRightBp(true); }}
                                     class="px-4 py-2 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center gap-2"
                                 >
                                     <i class="fa-solid fa-flag-checkered text-teal-400"></i>
@@ -677,6 +798,35 @@
                                             </button>
                                         </div>
 
+                                        {guideline && guideline.問診ポイント && guideline.問診ポイント.length > 0 && (
+                                            <div class="bg-teal-50/60 rounded-2xl p-4 border border-teal-200/80 space-y-3 mb-6">
+                                                <div class="flex items-center gap-2 text-teal-800 font-bold text-xs">
+                                                    <i class="fa-solid fa-list-check text-teal-600"></i>
+                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する問診チェックポイント</span>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    {guideline.問診ポイント.map((item, idx) => {
+                                                        const key = `g_interview_${idx}`;
+                                                        const finding = getInterviewFinding(item, currentCase.patientInfo, currentCase.guidelineFindings);
+                                                        return (
+                                                            <InterviewCard
+                                                                key={key}
+                                                                title={`問診: ${item}`}
+                                                                icon="fa-circle-question"
+                                                                isRevealed={revealed.has(key) || isFinished}
+                                                                onToggle={() => toggleReveal(key)}
+                                                                content={finding}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2 border-t border-slate-100">
+                                            基本問診項目 (大枠)
+                                        </h4>
+
                                         <InterviewCard
                                             title="現病歴 (HPI)"
                                             icon="fa-notes-medical"
@@ -725,8 +875,36 @@
                                 {activeTab === 'exam' && (
                                     <div class="space-y-4">
                                         <p class="text-xs text-slate-500">
-                                            実施する身体診察の項目を開示します。（※記載がない項目は正常所見）
+                                            実施する身体診察の項目を開示します。（※記載がない項目は「所見なし」）
                                         </p>
+
+                                        {guideline && guideline.身体診察ポイント && guideline.身体診察ポイント.length > 0 && (
+                                            <div class="bg-indigo-50/60 rounded-2xl p-4 border border-indigo-200/80 space-y-3 mb-6">
+                                                <div class="flex items-center gap-2 text-indigo-800 font-bold text-xs">
+                                                    <i class="fa-solid fa-user-doctor text-indigo-600"></i>
+                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する身体診察チェックポイント</span>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    {guideline.身体診察ポイント.map((item, idx) => {
+                                                        const key = `g_exam_${idx}`;
+                                                        const finding = getExamFinding(item, currentCase.physicalExam, currentCase.guidelineFindings);
+                                                        return (
+                                                            <ExamCard
+                                                                key={key}
+                                                                title={`診察: ${item}`}
+                                                                isRevealed={revealed.has(key) || isFinished}
+                                                                onToggle={() => toggleReveal(key)}
+                                                                content={finding}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2 border-t border-slate-100">
+                                            基本身体診察 (部位別大枠)
+                                        </h4>
 
                                         <div class="border border-slate-200 rounded-2xl overflow-hidden">
                                             <div 
@@ -742,19 +920,46 @@
                                                 </span>
                                             </div>
                                             {(revealed.has('vitals') || isFinished) && (
-                                                <div class="p-4 bg-white border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 gap-3 animate-fade-in">
-                                                    <VitalBadge label="意識状態" value={currentCase.physicalExam.vitals.consciousness} />
-                                                    <VitalBadge label="体温" value={currentCase.physicalExam.vitals.temp} />
-                                                    <VitalBadge label="脈拍数" value={currentCase.physicalExam.vitals.pulse} />
-                                                    <VitalBadge label="血圧" value={currentCase.physicalExam.vitals.bp} />
-                                                    <VitalBadge label="呼吸数" value={currentCase.physicalExam.vitals.resp} />
-                                                    <VitalBadge label="SpO2" value={currentCase.physicalExam.vitals.spo2} />
+                                                <div class="p-4 bg-white border-t border-slate-100 space-y-3 animate-fade-in">
+                                                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                                        <VitalBadge label="意識状態" value={currentCase.physicalExam.vitals.consciousness} />
+                                                        <VitalBadge label="体温" value={currentCase.physicalExam.vitals.temp} />
+                                                        <VitalBadge label="脈拍数" value={currentCase.physicalExam.vitals.pulse} />
+                                                        <VitalBadge label="血圧 (左)" value={bpLeftVal} />
+                                                        
+                                                        {showRightBp ? (
+                                                            <VitalBadge label="血圧 (右)" value={bpRightVal} highlight={true} />
+                                                        ) : (
+                                                            <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200/80 flex flex-col justify-between">
+                                                                <span class="text-[10px] font-bold text-amber-700 block">血圧 (右)</span>
+                                                                <button 
+                                                                    onClick={() => setShowRightBp(true)}
+                                                                    class="mt-1 px-2 py-1 bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-bold rounded-lg shadow-sm transition-colors flex items-center justify-center gap-1"
+                                                                >
+                                                                    <i class="fa-solid fa-hand-holding-medical"></i>
+                                                                    <span>右血圧を測定</span>
+                                                                </button>
+                                                            </div>
+                                                        )}
+
+                                                        <VitalBadge label="呼吸数" value={currentCase.physicalExam.vitals.resp} />
+                                                        <VitalBadge label="SpO2" value={currentCase.physicalExam.vitals.spo2} />
+                                                    </div>
                                                 </div>
                                             )}
                                         </div>
 
                                         <ExamCard title="1. 頭頸部" isRevealed={revealed.has('headNeck') || isFinished} onToggle={() => toggleReveal('headNeck')} content={currentCase.physicalExam.findings.headNeck} />
-                                        <ExamCard title="2. 胸部" isRevealed={revealed.has('chest') || isFinished} onToggle={() => toggleReveal('chest')} content={currentCase.physicalExam.findings.chest} />
+                                        
+                                        <AudioExamCard 
+                                            title="2. 胸部" 
+                                            isRevealed={revealed.has('chest') || isFinished} 
+                                            onToggle={() => toggleReveal('chest')} 
+                                            content={currentCase.physicalExam.findings.chest}
+                                            heartAudio={heartAudio}
+                                            breathAudio={breathAudio}
+                                        />
+
                                         <ExamCard title="3. 腹部" isRevealed={revealed.has('abdomen') || isFinished} onToggle={() => toggleReveal('abdomen')} content={currentCase.physicalExam.findings.abdomen} />
                                         <ExamCard title="4. 四肢" isRevealed={revealed.has('extremities') || isFinished} onToggle={() => toggleReveal('extremities')} content={currentCase.physicalExam.findings.extremities} />
                                         <ExamCard title="5. その他" isRevealed={revealed.has('other') || isFinished} onToggle={() => toggleReveal('other')} content={currentCase.physicalExam.findings.other} />
@@ -769,13 +974,13 @@
 
         function InterviewCard({ title, icon, isRevealed, onToggle, content }) {
             return (
-                <div class="border border-slate-200 rounded-2xl overflow-hidden transition-all">
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
                     <div 
                         onClick={onToggle}
-                        class="p-4 bg-slate-50/80 hover:bg-slate-100/80 cursor-pointer flex items-center justify-between transition-colors"
+                        class="p-4 bg-slate-50 hover:bg-slate-100 cursor-pointer flex items-center justify-between transition-colors"
                     >
-                        <div class="flex items-center gap-3">
-                            <i class={`fa-solid ${icon} text-teal-600 text-base`}></i>
+                        <div class="flex items-center gap-2.5">
+                            <i class={`fa-solid ${icon} text-teal-600`}></i>
                             <span class="font-bold text-xs sm:text-sm text-slate-800">{title}</span>
                         </div>
                         <span class={`text-xs font-bold px-3 py-1 rounded-full transition-colors ${
@@ -787,7 +992,7 @@
                     {isRevealed && (
                         <div class="p-4 bg-white border-t border-slate-100 animate-fade-in">
                             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
-                                {content || "（特記事項なし / 正常）"}
+                                {content || "所見なし"}
                             </p>
                         </div>
                     )}
@@ -800,7 +1005,7 @@
                 <div class="border border-slate-200 rounded-2xl overflow-hidden">
                     <div 
                         onClick={onToggle}
-                        class="p-4 bg-slate-50/80 hover:bg-slate-100/80 cursor-pointer flex items-center justify-between transition-colors"
+                        class="p-4 bg-slate-50 hover:bg-slate-100 cursor-pointer flex items-center justify-between transition-colors"
                     >
                         <span class="font-bold text-xs sm:text-sm text-slate-800">{title} 所見</span>
                         <span class={`text-xs font-bold px-3 py-1 rounded-full transition-colors ${
@@ -812,7 +1017,7 @@
                     {isRevealed && (
                         <div class="p-4 bg-white border-t border-slate-100 animate-fade-in">
                             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
-                                {content || "正常 (特記所見なし)"}
+                                {content || "所見なし"}
                             </p>
                         </div>
                     )}
@@ -820,9 +1025,60 @@
             );
         }
 
-        function VitalBadge({ label, value }) {
+        function AudioExamCard({ title, isRevealed, onToggle, content, heartAudio, breathAudio }) {
             return (
-                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <div 
+                        onClick={onToggle}
+                        class="p-4 bg-slate-50/80 hover:bg-slate-100/80 cursor-pointer flex items-center justify-between transition-colors"
+                    >
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-xs sm:text-sm text-slate-800">{title} 所見</span>
+                            <span class="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-volume-high"></i> 聴診音あり
+                            </span>
+                        </div>
+                        <span class={`text-xs font-bold px-3 py-1 rounded-full transition-colors ${
+                            isRevealed ? 'bg-teal-100 text-teal-800' : 'bg-slate-200 text-slate-600 hover:bg-teal-600 hover:text-white'
+                        }`}>
+                            {isRevealed ? "表示中" : "診察して開示"}
+                        </span>
+                    </div>
+                    {isRevealed && (
+                        <div class="p-4 bg-white border-t border-slate-100 space-y-4 animate-fade-in">
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
+                                {content || "正常 (特記所見なし)"}
+                            </p>
+
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80 space-y-3">
+                                <span class="text-xs font-bold text-indigo-900 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-stethoscopes text-indigo-600"></i> 胸部聴診音再生
+                                </span>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+                                        <span class="text-[11px] font-bold text-slate-600 block mb-1">
+                                            <i class="fa-solid fa-heart-pulse text-rose-500 mr-1"></i> 心音聴診
+                                        </span>
+                                        <audio controls controlsList="noplaybackrate nodownload" src={heartAudio} class="w-full h-8 text-xs"></audio>
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+                                        <span class="text-[11px] font-bold text-slate-600 block mb-1">
+                                            <i class="fa-solid fa-wind text-teal-500 mr-1"></i> 呼吸音聴診
+                                        </span>
+                                        <audio controls controlsList="noplaybackrate nodownload" src={breathAudio} class="w-full h-8 text-xs"></audio>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        function VitalBadge({ label, value, highlight }) {
+            return (
+                <div class={`p-2.5 rounded-xl border ${highlight ? 'bg-teal-50 border-teal-200' : 'bg-slate-50 border-slate-100'}`}>
                     <span class="text-[10px] font-bold text-slate-400 block">{label}</span>
                     <span class="text-xs font-bold text-slate-800">{value || "正常"}</span>
                 </div>
@@ -849,6 +1105,12 @@
                 const s = secs % 60;
                 return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             };
+
+            const bpLeftVal = currentCase.physicalExam.vitals.bpLeft || currentCase.physicalExam.vitals.bp || "正常";
+            const bpRightVal = currentCase.physicalExam.vitals.bpRight || bpLeftVal;
+
+            const heartAudio = currentCase.physicalExam?.audio?.heartSoundUrl || DEFAULT_HEART_SOUND_URL;
+            const breathAudio = currentCase.physicalExam?.audio?.breathSoundUrl || DEFAULT_BREATH_SOUND_URL;
 
             return (
                 <div class="max-w-6xl mx-auto w-full px-4 py-6 flex flex-col gap-4 animate-fade-in min-h-[calc(100vh-4rem)]">
@@ -985,13 +1247,30 @@
                                         <div class="p-2 bg-slate-50 rounded border"><b>意識:</b> {currentCase.physicalExam.vitals.consciousness}</div>
                                         <div class="p-2 bg-slate-50 rounded border"><b>体温:</b> {currentCase.physicalExam.vitals.temp}</div>
                                         <div class="p-2 bg-slate-50 rounded border"><b>脈拍:</b> {currentCase.physicalExam.vitals.pulse}</div>
-                                        <div class="p-2 bg-slate-50 rounded border"><b>血圧:</b> {currentCase.physicalExam.vitals.bp}</div>
+                                        <div class="p-2 bg-slate-50 rounded border"><b>血圧(左):</b> {bpLeftVal}</div>
+                                        <div class="p-2 bg-slate-50 rounded border"><b>血圧(右):</b> {bpRightVal}</div>
                                         <div class="p-2 bg-slate-50 rounded border"><b>呼吸数:</b> {currentCase.physicalExam.vitals.resp}</div>
                                         <div class="p-2 bg-slate-50 rounded border"><b>SpO2:</b> {currentCase.physicalExam.vitals.spo2}</div>
                                     </div>
                                     <div class="space-y-2">
                                         <DetailBox title="1. 頭頸部" content={currentCase.physicalExam.findings.headNeck} />
-                                        <DetailBox title="2. 胸部" content={currentCase.physicalExam.findings.chest} />
+                                        
+                                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+                                            <span class="text-[10px] font-bold text-slate-400 block uppercase">2. 胸部 (所見 & 聴診音)</span>
+                                            <p class="text-slate-800 font-medium whitespace-pre-wrap">{currentCase.physicalExam.findings.chest || "正常 / 特記事項なし"}</p>
+                                            
+                                            <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                <div class="bg-white p-2 rounded border">
+                                                    <span class="text-[10px] font-bold text-slate-600 block mb-1">心音再生</span>
+                                                    <audio controls controlsList="noplaybackrate nodownload" src={heartAudio} class="w-full h-7 text-xs"></audio>
+                                                </div>
+                                                <div class="bg-white p-2 rounded border">
+                                                    <span class="text-[10px] font-bold text-slate-600 block mb-1">呼吸音再生</span>
+                                                    <audio controls controlsList="noplaybackrate nodownload" src={breathAudio} class="w-full h-7 text-xs"></audio>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <DetailBox title="3. 腹部" content={currentCase.physicalExam.findings.abdomen} />
                                         <DetailBox title="4. 四肢" content={currentCase.physicalExam.findings.extremities} />
                                         <DetailBox title="5. その他" content={currentCase.physicalExam.findings.other} />
@@ -1149,17 +1428,52 @@
         }
 
         function CaseEditorScreen({ editingCase, onSave, onCancel }) {
-            const [formData, setFormData] = useState(() => editingCase || {
-                id: `case-${Date.now()}`,
-                createdAt: new Date().toISOString(),
-                initialInfo: { name: "", age: "", gender: "男性", setting: "", chiefComplaint: SYMPTOMS_37[0] },
-                hiddenSettings: { aim: "", actingGuideline: "", differentialDiagnosis: "" },
-                patientInfo: { hpi: "", careBehavior: "", explanatoryModel: "", pmh: "", familyHistory: "", background: "" },
-                physicalExam: {
-                    vitals: { consciousness: "清明", temp: "36.5 ℃", pulse: "72 回/分", bp: "120/80 mmHg", resp: "15 回/分", spo2: "98 %" },
-                    findings: { headNeck: "", chest: "", abdomen: "", extremities: "", other: "" }
+            const [formData, setFormData] = useState(() => {
+                if (editingCase) {
+                    return {
+                        ...editingCase,
+                        guidelineFindings: editingCase.guidelineFindings || {},
+                        physicalExam: {
+                            vitals: {
+                                consciousness: editingCase.physicalExam?.vitals?.consciousness || "清明",
+                                temp: editingCase.physicalExam?.vitals?.temp || "36.5 ℃",
+                                pulse: editingCase.physicalExam?.vitals?.pulse || "72 回/分",
+                                bpLeft: editingCase.physicalExam?.vitals?.bpLeft || editingCase.physicalExam?.vitals?.bp || "120/80 mmHg",
+                                bpRight: editingCase.physicalExam?.vitals?.bpRight || editingCase.physicalExam?.vitals?.bp || "120/80 mmHg",
+                                resp: editingCase.physicalExam?.vitals?.resp || "15 回/分",
+                                spo2: editingCase.physicalExam?.vitals?.spo2 || "98 %"
+                            },
+                            findings: editingCase.physicalExam?.findings || { headNeck: "", chest: "", abdomen: "", extremities: "", other: "" },
+                            audio: editingCase.physicalExam?.audio || { heartSoundUrl: "", breathSoundUrl: "" }
+                        }
+                    };
                 }
+                return {
+                    id: `case-${Date.now()}`,
+                    createdAt: new Date().toISOString(),
+                    initialInfo: { name: "", age: "", gender: "男性", setting: "", chiefComplaint: SYMPTOMS_37[0] },
+                    hiddenSettings: { aim: "", actingGuideline: "", differentialDiagnosis: "" },
+                    patientInfo: { hpi: "", careBehavior: "", explanatoryModel: "", pmh: "", familyHistory: "", background: "" },
+                    guidelineFindings: {},
+                    physicalExam: {
+                        vitals: { consciousness: "清明", temp: "36.5 ℃", pulse: "72 回/分", bpLeft: "120/80 mmHg", bpRight: "120/80 mmHg", resp: "15 回/分", spo2: "98 %" },
+                        findings: { headNeck: "", chest: "", abdomen: "", extremities: "", other: "" },
+                        audio: { heartSoundUrl: "", breathSoundUrl: "" }
+                    }
+                };
             });
+
+            const currentGuideline = useMemo(() => getGuideline(formData.initialInfo.chiefComplaint), [formData.initialInfo.chiefComplaint]);
+
+            const handleGuidelineFindingChange = (itemKey, value) => {
+                setFormData(prev => ({
+                    ...prev,
+                    guidelineFindings: {
+                        ...(prev.guidelineFindings || {}),
+                        [itemKey]: value
+                    }
+                }));
+            };
 
             const handleSubmit = (e) => {
                 e.preventDefault();
@@ -1215,6 +1529,66 @@
                             </div>
                         </div>
 
+                        {currentGuideline && (
+                            <div class="bg-amber-50/60 rounded-2xl p-6 shadow-sm border border-amber-200/80 space-y-4">
+                                <h3 class="text-sm font-bold text-amber-900 flex items-center gap-2 border-b border-amber-200 pb-2">
+                                    <i class="fa-solid fa-list-check text-amber-600"></i>
+                                    主訴（{formData.initialInfo.chiefComplaint}）別 個別所見設定
+                                </h3>
+                                <p class="text-xs text-amber-800 leading-relaxed">
+                                    一人モード等で各問診・身体診察ボタンが押された際に個別に提示する所見を入力できます。（未入力の項目は「現病歴/身体所見からの自動抽出」またはデフォルトの「所見なし」と表示されます）
+                                </p>
+
+                                {currentGuideline.問診ポイント && currentGuideline.問診ポイント.length > 0 && (
+                                    <div class="space-y-3 pt-2">
+                                        <h4 class="text-xs font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5">
+                                            <i class="fa-solid fa-comments"></i> 問診ポイント個別所見
+                                        </h4>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            {currentGuideline.問診ポイント.map((item) => (
+                                                <div key={`g_i_${item}`} class="bg-white p-3 rounded-xl border border-amber-200/60">
+                                                    <label class="block text-xs font-bold text-slate-700 mb-1">
+                                                        {item}
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="未入力時: 自動生成/所見なし"
+                                                        value={formData.guidelineFindings?.[item] || ""}
+                                                        onChange={(e) => handleGuidelineFindingChange(item, e.target.value)}
+                                                        class="w-full p-2 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {currentGuideline.身体診察ポイント && currentGuideline.身体診察ポイント.length > 0 && (
+                                    <div class="space-y-3 pt-4 border-t border-amber-200/60">
+                                        <h4 class="text-xs font-bold text-indigo-800 uppercase tracking-wider flex items-center gap-1.5">
+                                            <i class="fa-solid fa-stethoscope"></i> 身体診察ポイント個別所見
+                                        </h4>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            {currentGuideline.身体診察ポイント.map((item) => (
+                                                <div key={`g_e_${item}`} class="bg-white p-3 rounded-xl border border-amber-200/60">
+                                                    <label class="block text-xs font-bold text-slate-700 mb-1">
+                                                        {item}
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="未入力時: 自動生成/所見なし"
+                                                        value={formData.guidelineFindings?.[item] || ""}
+                                                        onChange={(e) => handleGuidelineFindingChange(item, e.target.value)}
+                                                        class="w-full p-2 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
                         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
                             <h3 class="text-sm font-bold text-indigo-700 flex items-center gap-2 border-b pb-2">
                                 <i class="fa-solid fa-user-secret"></i> 隠し設定
@@ -1235,7 +1609,7 @@
 
                         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
                             <h3 class="text-sm font-bold text-emerald-700 flex items-center gap-2 border-b pb-2">
-                                <i class="fa-solid fa-file-medical"></i> 患者問診情報
+                                <i class="fa-solid fa-file-medical"></i> 患者問診情報 (基本大枠)
                             </h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
@@ -1267,23 +1641,40 @@
 
                         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
                             <h3 class="text-sm font-bold text-rose-700 flex items-center gap-2 border-b pb-2">
-                                <i class="fa-solid fa-stethoscope"></i> 身体診察情報 (未記入は「正常」)
+                                <i class="fa-solid fa-stethoscope"></i> 身体診察情報 (基本大枠 / 未記入は「正常」)
                             </h3>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                                 <div><label class="block text-[10px] text-slate-400">意識状態</label><input type="text" value={formData.physicalExam.vitals.consciousness} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, consciousness: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div><label class="block text-[10px] text-slate-400">体温</label><input type="text" value={formData.physicalExam.vitals.temp} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, temp: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div><label class="block text-[10px] text-slate-400">脈拍数</label><input type="text" value={formData.physicalExam.vitals.pulse} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, pulse: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
-                                <div><label class="block text-[10px] text-slate-400">血圧</label><input type="text" value={formData.physicalExam.vitals.bp} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, bp: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
+                                <div><label class="block text-[10px] text-slate-400 font-bold text-teal-700">血圧 (左)</label><input type="text" value={formData.physicalExam.vitals.bpLeft} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, bpLeft: e.target.value}}})} class="w-full p-2 text-xs border border-teal-300 rounded-lg" /></div>
+                                <div><label class="block text-[10px] text-slate-400 font-bold text-amber-700">血圧 (右)</label><input type="text" value={formData.physicalExam.vitals.bpRight} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, bpRight: e.target.value}}})} class="w-full p-2 text-xs border border-amber-300 rounded-lg" /></div>
                                 <div><label class="block text-[10px] text-slate-400">呼吸数</label><input type="text" value={formData.physicalExam.vitals.resp} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, resp: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div><label class="block text-[10px] text-slate-400">SpO2</label><input type="text" value={formData.physicalExam.vitals.spo2} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, vitals: {...formData.physicalExam.vitals, spo2: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
                                 <div><label class="block text-xs font-bold text-slate-500">1. 頭頸部</label><input type="text" value={formData.physicalExam.findings.headNeck} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, headNeck: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
-                                <div><label class="block text-xs font-bold text-slate-500">2. 胸部</label><input type="text" value={formData.physicalExam.findings.chest} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, chest: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
+                                <div><label class="block text-xs font-bold text-slate-500">2. 胸部 (所見)</label><input type="text" value={formData.physicalExam.findings.chest} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, chest: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div><label class="block text-xs font-bold text-slate-500">3. 腹部</label><input type="text" value={formData.physicalExam.findings.abdomen} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, abdomen: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div><label class="block text-xs font-bold text-slate-500">4. 四肢</label><input type="text" value={formData.physicalExam.findings.extremities} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, extremities: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
                                 <div class="sm:col-span-2"><label class="block text-xs font-bold text-slate-500">5. その他</label><input type="text" value={formData.physicalExam.findings.other} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, findings: {...formData.physicalExam.findings, other: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" /></div>
+                            </div>
+
+                            <div class="pt-3 border-t border-slate-100 space-y-3">
+                                <h4 class="text-xs font-bold text-indigo-800 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-music"></i> 胸部 聴診音URL (未入力の場合はデフォルト正常音を再生)
+                                </h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-[10px] text-slate-500 font-bold mb-1">心音オーディオURL (.mp3 / .ogg)</label>
+                                        <input type="url" placeholder="未入力で正常音再生" value={formData.physicalExam.audio?.heartSoundUrl || ""} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, audio: {...(formData.physicalExam.audio || {}), heartSoundUrl: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] text-slate-500 font-bold mb-1">呼吸音オーディオURL (.mp3 / .ogg)</label>
+                                        <input type="url" placeholder="未入力で正常音再生" value={formData.physicalExam.audio?.breathSoundUrl || ""} onChange={e => setFormData({...formData, physicalExam: {...formData.physicalExam, audio: {...(formData.physicalExam.audio || {}), breathSoundUrl: e.target.value}}})} class="w-full p-2 text-xs border rounded-lg" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
