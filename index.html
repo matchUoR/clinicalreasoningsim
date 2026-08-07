@@ -67,7 +67,7 @@
 
         // デフォルトの胸部聴診音源 (心音・呼吸音)
         const DEFAULT_HEART_SOUND_URL = "https://kenpo.jpn.panasonic.com/kinen/kinen/phs/audio/1_2L.mp3";
-        const DEFAULT_BREATH_SOUND_URL = "https://www.byomie.com/gallery/vol4-4th_sample/vol4_sound/sound/breathC_test_150303MS_10sec_128kbps.mp3";
+        const DEFAULT_BREATH_SOUND_URL = "https://upload.wikimedia.org/wikipedia/commons/8/81/Normal_vesicular_breath_sounds.ogg";
 
         // 主訴ごとの問診・身体診察・検討すべき鑑別疾患ガイドラインデータ
         const CLINICAL_GUIDELINES = [
@@ -90,7 +90,7 @@
             { "主訴": "胸痛", "問診ポイント": ["部位", "痛みの質", "痛みの強さ", "持続時間", "症状の経過", "発症様式", "寛解増悪因子", "随伴症状", "発熱", "既往歴（健診を含む）", "家族歴", "嗜好", "生活習慣"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "頸部血管", "胸郭", "心音・心雑音", "呼吸音・副雑音"], "検討すべき鑑別疾患": ["肺塞栓症", "気胸", "胸膜炎", "急性冠症候群", "急性心膜炎", "急性大動脈解離", "大動脈瘤破裂", "帯状疱疹", "パニック障害"] },
             { "主訴": "動悸", "問診ポイント": ["失神", "全身倦怠感", "体重の変化", "発汗", "胸痛", "呼吸困難", "便の性状", "浮腫", "抑うつ", "不安", "睡眠障害", "常用薬", "既往歴（健診を含む）"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "眼瞼・眼球", "甲状腺", "頸部血管", "心音・心雑音", "呼吸音・副雑音", "浮腫"], "検討すべき鑑別疾患": ["甲状腺機能亢進症", "不整脈", "鉄欠乏性貧血", "二次性貧血", "パニック障害", "不安障害"] },
             { "主訴": "胸水", "問診ポイント": ["呼吸困難", "発熱", "体重の変化", "皮疹", "咳・痰", "胸痛", "腹痛", "関節", "浮腫", "既往歴（健診を含む）", "嗜好"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "皮疹", "頸部血管", "心音・心雑音", "呼吸音・副雑音", "腹部の診察", "関節", "浮腫"], "検討すべき鑑別疾患": ["心不全", "胸膜炎", "肺結核", "悪性腫瘍胸膜播種"] },
-            { "主訴": "嚥下困難", "問診ポイント": ["体重の変化", "頭痛", "複視", "咽頭痛", "頸部痛", "食思（欲）", "嚥下（水分・固形物）", "胸やけ", "構音障害", "運動麻痺", "発熱"], "身体診察ポイント": ["口腔・咽頭", "神経系の診察", "頸部リンパ節"], "検討すべき鑑別疾患": ["脳出血", "脳梗塞", "扁桃炎", "食道癌"] },
+            { "主訴": "嚥下困難", "問診ポイント": ["体重の変化", "頭痛", "視野異常", "咽頭痛", "頸部痛", "食思（欲）", "嚥下（水分・固形物）", "胸やけ", "構音障害", "運動麻痺", "発熱"], "身体診察ポイント": ["口腔・咽頭", "神経系の診察", "頸部リンパ節"], "検討すべき鑑別疾患": ["脳出血", "脳梗塞", "扁桃炎", "食道癌"] },
             { "主訴": "腹痛", "問診ポイント": ["痛みの部位", "痛みの経過", "発熱", "悪心・嘔吐", "食事との関係", "尿の性状", "月経", "性器出血", "既往歴（健診を含む）", "嗜好", "生活習慣"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "眼瞼結膜・眼球結膜", "心音・心雑音", "腹部の診察"], "検討すべき鑑別疾患": ["消化性潰瘍", "機能性ディスペプシア（FD）", "急性胃腸炎", "急性虫垂炎", "憩室炎", "虚血性大腸炎", "腸間膜動脈塞栓症", "便秘症", "過敏性腸症候群", "腸閉塞", "腸重積症", "汎発性腹膜炎", "鼠径ヘルニア", "胆嚢炎", "胆石症", "急性膵炎", "急性冠症候群", "急性大動脈解離", "子宮内膜症", "異所性妊娠", "流・早産", "卵巣嚢腫（捻転）", "卵巣癌（捻転）", "尿路結石", "糖尿病性ケトアシドーシス"] },
             { "主訴": "悪心・嘔吐", "問診ポイント": ["症状の経過", "腹痛", "便の性状", "頭痛", "体重の変化", "発汗", "多尿", "めまい", "抑うつ", "生活習慣", "月経", "性器出血", "既往歴"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "心音・心雑音", "背部の叩打痛", "髄膜刺激症候", "腹部の診察", "神経系の診察", "不機嫌（小児）"], "検討すべき鑑別疾患": ["脳出血", "くも膜下出血", "頭蓋内血腫", "髄膜炎", "片頭痛", "急性胃腸炎", "急性虫垂炎", "腸閉塞", "食中毒", "急性心筋梗塞", "妊娠", "糖尿病性ケトアシドーシス", "カルシウム代謝異常"] },
             { "主訴": "吐血・下血", "問診ポイント": ["症状の経過", "腹痛", "便の性状", "腹部膨隆・膨満", "発熱", "体重の変化", "不機嫌（小児）", "常用薬", "既往歴（健診を含む）", "嗜好"], "身体診察ポイント": ["意識レベル", "バイタルサイン", "全身の外観", "リンパ節", "眼瞼・眼球", "腹部の診察", "直腸診"], "検討すべき鑑別疾患": ["食道静脈瘤", "Mallory-Weiss症候群", "胃癌", "消化性潰瘍", "炎症性腸疾患", "虚血性大腸炎", "憩室出血", "大腸癌", "痔核", "裂肛"] },
@@ -271,8 +271,8 @@
                         "other": "冷や汗（発汗）顕著。"
                     },
                     "audio": {
-                        "heartSoundUrl": "",
-                        "breathSoundUrl": ""
+                        "heartSoundUrl": "https://kenpo.jpn.panasonic.com/kinen/kinen/phs/audio/1_2L.mp3",
+                        "breathSoundUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Normal_vesicular_breath_sounds.ogg"
                     }
                 }
             },
@@ -798,32 +798,7 @@
                                             </button>
                                         </div>
 
-                                        {guideline && guideline.問診ポイント && guideline.問診ポイント.length > 0 && (
-                                            <div class="bg-teal-50/60 rounded-2xl p-4 border border-teal-200/80 space-y-3 mb-6">
-                                                <div class="flex items-center gap-2 text-teal-800 font-bold text-xs">
-                                                    <i class="fa-solid fa-list-check text-teal-600"></i>
-                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する問診チェックポイント</span>
-                                                </div>
-                                                <div class="space-y-2">
-                                                    {guideline.問診ポイント.map((item, idx) => {
-                                                        const key = `g_interview_${idx}`;
-                                                        const finding = getInterviewFinding(item, currentCase.patientInfo, currentCase.guidelineFindings);
-                                                        return (
-                                                            <InterviewCard
-                                                                key={key}
-                                                                title={`問診: ${item}`}
-                                                                icon="fa-circle-question"
-                                                                isRevealed={revealed.has(key) || isFinished}
-                                                                onToggle={() => toggleReveal(key)}
-                                                                content={finding}
-                                                            />
-                                                        );
-                                                    })}
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2 border-t border-slate-100">
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">
                                             基本問診項目 (大枠)
                                         </h4>
 
@@ -869,29 +844,22 @@
                                             onToggle={() => toggleReveal('background')}
                                             content={currentCase.patientInfo.background}
                                         />
-                                    </div>
-                                )}
 
-                                {activeTab === 'exam' && (
-                                    <div class="space-y-4">
-                                        <p class="text-xs text-slate-500">
-                                            実施する身体診察の項目を開示します。（※記載がない項目は「所見なし」）
-                                        </p>
-
-                                        {guideline && guideline.身体診察ポイント && guideline.身体診察ポイント.length > 0 && (
-                                            <div class="bg-indigo-50/60 rounded-2xl p-4 border border-indigo-200/80 space-y-3 mb-6">
-                                                <div class="flex items-center gap-2 text-indigo-800 font-bold text-xs">
-                                                    <i class="fa-solid fa-user-doctor text-indigo-600"></i>
-                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する身体診察チェックポイント</span>
+                                        {guideline && guideline.問診ポイント && guideline.問診ポイント.length > 0 && (
+                                            <div class="bg-teal-50/60 rounded-2xl p-4 border border-teal-200/80 space-y-3 mt-6 pt-2">
+                                                <div class="flex items-center gap-2 text-teal-800 font-bold text-xs">
+                                                    <i class="fa-solid fa-list-check text-teal-600"></i>
+                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する問診チェックポイント</span>
                                                 </div>
                                                 <div class="space-y-2">
-                                                    {guideline.身体診察ポイント.map((item, idx) => {
-                                                        const key = `g_exam_${idx}`;
-                                                        const finding = getExamFinding(item, currentCase.physicalExam, currentCase.guidelineFindings);
+                                                    {guideline.問診ポイント.map((item, idx) => {
+                                                        const key = `g_interview_${idx}`;
+                                                        const finding = getInterviewFinding(item, currentCase.patientInfo, currentCase.guidelineFindings);
                                                         return (
-                                                            <ExamCard
+                                                            <InterviewCard
                                                                 key={key}
-                                                                title={`診察: ${item}`}
+                                                                title={`問診: ${item}`}
+                                                                icon="fa-circle-question"
                                                                 isRevealed={revealed.has(key) || isFinished}
                                                                 onToggle={() => toggleReveal(key)}
                                                                 content={finding}
@@ -901,8 +869,16 @@
                                                 </div>
                                             </div>
                                         )}
+                                    </div>
+                                )}
 
-                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2 border-t border-slate-100">
+                                {activeTab === 'exam' && (
+                                    <div class="space-y-4">
+                                        <p class="text-xs text-slate-500">
+                                            実施する身体診察の項目を開示します。（※記載がない項目は「所見なし」）
+                                        </p>
+
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider pt-2">
                                             基本身体診察 (部位別大枠)
                                         </h4>
 
@@ -963,6 +939,30 @@
                                         <ExamCard title="3. 腹部" isRevealed={revealed.has('abdomen') || isFinished} onToggle={() => toggleReveal('abdomen')} content={currentCase.physicalExam.findings.abdomen} />
                                         <ExamCard title="4. 四肢" isRevealed={revealed.has('extremities') || isFinished} onToggle={() => toggleReveal('extremities')} content={currentCase.physicalExam.findings.extremities} />
                                         <ExamCard title="5. その他" isRevealed={revealed.has('other') || isFinished} onToggle={() => toggleReveal('other')} content={currentCase.physicalExam.findings.other} />
+
+                                        {guideline && guideline.身体診察ポイント && guideline.身体診察ポイント.length > 0 && (
+                                            <div class="bg-indigo-50/60 rounded-2xl p-4 border border-indigo-200/80 space-y-3 mt-6 pt-2">
+                                                <div class="flex items-center gap-2 text-indigo-800 font-bold text-xs">
+                                                    <i class="fa-solid fa-user-doctor text-indigo-600"></i>
+                                                    <span>【主訴: {currentCase.initialInfo.chiefComplaint}】に関する身体診察チェックポイント</span>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    {guideline.身体診察ポイント.map((item, idx) => {
+                                                        const key = `g_exam_${idx}`;
+                                                        const finding = getExamFinding(item, currentCase.physicalExam, currentCase.guidelineFindings);
+                                                        return (
+                                                            <ExamCard
+                                                                key={key}
+                                                                title={`診察: ${item}`}
+                                                                isRevealed={revealed.has(key) || isFinished}
+                                                                onToggle={() => toggleReveal(key)}
+                                                                content={finding}
+                                                            />
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                             </div>
