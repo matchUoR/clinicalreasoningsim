@@ -593,12 +593,18 @@
 
             const guideline = useMemo(() => getGuideline(currentCase.initialInfo.chiefComplaint), [currentCase]);
 
-            // Web Audio API によるビープ音発音関数
+            // Web Audio API によるビープ音発音関数 (ブラウザのサスペンド制限解除に対応)
             const playBeepSound = (freq = 880, duration = 0.3, count = 1) => {
                 try {
                     const AudioCtx = window.AudioContext || window.webkitAudioContext;
                     if (!AudioCtx) return;
-                    const ctx = new AudioCtx();
+                    if (!window.globalAudioCtx) {
+                        window.globalAudioCtx = new AudioCtx();
+                    }
+                    const ctx = window.globalAudioCtx;
+                    if (ctx.state === 'suspended') {
+                        ctx.resume();
+                    }
                     
                     const triggerBeep = (delay) => {
                         setTimeout(() => {
@@ -606,7 +612,7 @@
                             const gain = ctx.createGain();
                             osc.type = 'sine';
                             osc.frequency.setValueAtTime(freq, ctx.currentTime);
-                            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                            gain.gain.setValueAtTime(0.5, ctx.currentTime);
                             gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + duration);
                             osc.connect(gain);
                             gain.connect(ctx.destination);
@@ -621,6 +627,26 @@
                 } catch (e) {
                     console.error("Audio Context Error", e);
                 }
+            };
+
+            // スタート/一時停止切り替え時に AudioContext を有効化
+            const toggleTimer = () => {
+                if (!isTimerRunning) {
+                    try {
+                        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                        if (AudioCtx) {
+                            if (!window.globalAudioCtx) {
+                                window.globalAudioCtx = new AudioCtx();
+                            }
+                            if (window.globalAudioCtx.state === 'suspended') {
+                                window.globalAudioCtx.resume();
+                            }
+                        }
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+                setIsTimerRunning(!isTimerRunning);
             };
 
             // タイマーモード変更処理
@@ -658,7 +684,7 @@
                                 if (nextSec <= 60 && !warnedRef.current) {
                                     warnedRef.current = true;
                                     setTimerAlertState("warning");
-                                    playBeepSound(659.25, 0.4, 1); // 1分前通知音 (ミ)
+                                    playBeepSound(659.25, 0.4, 2); // 1分前通知音 (ミ×2回)
                                 }
                                 return nextSec;
                             }
@@ -705,17 +731,37 @@
             const heartAudio = currentCase.physicalExam?.audio?.heartSoundUrl || DEFAULT_HEART_SOUND_URL;
             const breathAudio = currentCase.physicalExam?.audio?.breathSoundUrl || DEFAULT_BREATH_SOUND_URL;
 
-            // ヘッダーの色状態クラス判定
-            const headerColorClass = timerAlertState === "finished"
-                ? "bg-rose-600 text-white border-rose-700 animate-pulse"
+            // タイマーアラート状態に応じた画面全体の背景色・枠線判定
+            const wrapperBgClass = timerAlertState === "finished"
+                ? "bg-rose-100 ring-8 ring-rose-500/80 p-4 rounded-3xl transition-all duration-500"
                 : timerAlertState === "warning"
-                ? "bg-amber-500 text-slate-900 border-amber-600"
-                : "bg-white text-slate-800 border-slate-200";
+                ? "bg-amber-100 ring-8 ring-amber-400/80 p-4 rounded-3xl transition-all duration-500"
+                : "bg-transparent p-0 transition-all duration-500";
+
+            const headerColorClass = timerAlertState === "finished"
+                ? "bg-rose-600 text-white border-rose-700 shadow-xl"
+                : timerAlertState === "warning"
+                ? "bg-amber-500 text-slate-900 border-amber-600 shadow-xl"
+                : "bg-white text-slate-800 border-slate-200 shadow-sm";
 
             return (
-                <div class="max-w-6xl mx-auto w-full px-4 py-6 flex flex-col gap-4 animate-fade-in min-h-[calc(100vh-4rem)]">
-                    {/* 上部ヘッダー（タイマーアラート時に色が変更） */}
-                    <div class={`rounded-2xl p-4 shadow-sm border flex flex-wrap items-center justify-between gap-3 transition-colors duration-300 ${headerColorClass}`}>
+                <div class={`max-w-6xl mx-auto w-full px-4 py-6 flex flex-col gap-4 animate-fade-in min-h-[calc(100vh-4rem)] ${wrapperBgClass}`}>
+                    {/* 残り1分・タイムアップ時の画面上部大枠バナー */}
+                    {timerAlertState === "warning" && (
+                        <div class="bg-amber-500 text-slate-900 px-6 py-3 rounded-2xl font-black text-center text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg animate-bounce">
+                            <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                            <span>【注意】残り1分（60秒）です！間もなく終了時間となります。</span>
+                        </div>
+                    )}
+                    {timerAlertState === "finished" && (
+                        <div class="bg-rose-600 text-white px-6 py-3 rounded-2xl font-black text-center text-sm sm:text-base flex items-center justify-center gap-2 shadow-xl animate-pulse">
+                            <i class="fa-solid fa-bell text-xl"></i>
+                            <span>【タイムアップ】制限時間が終了しました！診察を終了してください。</span>
+                        </div>
+                    )}
+
+                    {/* 上部ヘッダー */}
+                    <div class={`rounded-2xl p-4 border flex flex-wrap items-center justify-between gap-3 transition-colors duration-300 ${headerColorClass}`}>
                         <div class="flex items-center gap-3">
                             <button onClick={onBack} class="p-2 hover:bg-black/10 rounded-lg transition-colors" title="ホームに戻る">
                                 <i class="fa-solid fa-arrow-left"></i>
@@ -726,13 +772,13 @@
                                         一人モード（自主学習）
                                     </span>
                                     {timerAlertState === "warning" && (
-                                        <span class="px-2 py-0.5 bg-slate-900 text-amber-300 text-xs font-bold rounded animate-bounce">
-                                            <i class="fa-solid fa-triangle-exclamation mr-1"></i>残り1分!
+                                        <span class="px-2 py-0.5 bg-slate-900 text-amber-300 text-xs font-bold rounded">
+                                            残り1分!
                                         </span>
                                     )}
                                     {timerAlertState === "finished" && (
                                         <span class="px-2 py-0.5 bg-white text-rose-700 text-xs font-bold rounded">
-                                            <i class="fa-solid fa-bell mr-1"></i>タイムアップ!
+                                            タイムアップ!
                                         </span>
                                     )}
                                 </div>
@@ -770,7 +816,7 @@
                                 </div>
 
                                 <button 
-                                    onClick={() => setIsTimerRunning(!isTimerRunning)} 
+                                    onClick={toggleTimer} 
                                     class={`text-xs px-3 py-1.5 rounded-lg font-bold shadow-sm transition-all ${
                                         isTimerRunning ? "bg-slate-800 text-white hover:bg-black" : "bg-teal-600 text-white hover:bg-teal-700"
                                     }`}
